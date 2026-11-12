@@ -1,0 +1,350 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\appproj\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|solutionrelative:appproj\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FEB4C03-7EC5-4903-BB4C-4E0A91F1F1BB}|IDao\\IDao.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\idao\\idaotrajecte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1FEB4C03-7EC5-4903-BB4C-4E0A91F1F1BB}|IDao\\IDao.csproj|solutionrelative:idao\\idaotrajecte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FEB4C03-7EC5-4903-BB4C-4E0A91F1F1BB}|IDao\\IDao.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\idao\\idaousuari.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1FEB4C03-7EC5-4903-BB4C-4E0A91F1F1BB}|IDao\\IDao.csproj|solutionrelative:idao\\idaousuari.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92EF7A4A-364B-4087-BC68-BA9EDB5552C1}|Dao\\Dao.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\dao\\daotrajecte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92EF7A4A-364B-4087-BC68-BA9EDB5552C1}|Dao\\Dao.csproj|solutionrelative:dao\\daotrajecte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92EF7A4A-364B-4087-BC68-BA9EDB5552C1}|Dao\\Dao.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\dao\\daoparada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92EF7A4A-364B-4087-BC68-BA9EDB5552C1}|Dao\\Dao.csproj|solutionrelative:dao\\daoparada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92EF7A4A-364B-4087-BC68-BA9EDB5552C1}|Dao\\Dao.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\dao\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92EF7A4A-364B-4087-BC68-BA9EDB5552C1}|Dao\\Dao.csproj|solutionrelative:dao\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92EF7A4A-364B-4087-BC68-BA9EDB5552C1}|Dao\\Dao.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\dao\\daousuari.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92EF7A4A-364B-4087-BC68-BA9EDB5552C1}|Dao\\Dao.csproj|solutionrelative:dao\\daousuari.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FEB4C03-7EC5-4903-BB4C-4E0A91F1F1BB}|IDao\\IDao.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\idao\\idaoparada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1FEB4C03-7EC5-4903-BB4C-4E0A91F1F1BB}|IDao\\IDao.csproj|solutionrelative:idao\\idaoparada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FEB4C03-7EC5-4903-BB4C-4E0A91F1F1BB}|IDao\\IDao.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\idao\\idaomitjatrans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1FEB4C03-7EC5-4903-BB4C-4E0A91F1F1BB}|IDao\\IDao.csproj|solutionrelative:idao\\idaomitjatrans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FEB4C03-7EC5-4903-BB4C-4E0A91F1F1BB}|IDao\\IDao.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\idao\\idaoestacio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1FEB4C03-7EC5-4903-BB4C-4E0A91F1F1BB}|IDao\\IDao.csproj|solutionrelative:idao\\idaoestacio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FEB4C03-7EC5-4903-BB4C-4E0A91F1F1BB}|IDao\\IDao.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\idao\\idaociutat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1FEB4C03-7EC5-4903-BB4C-4E0A91F1F1BB}|IDao\\IDao.csproj|solutionrelative:idao\\idaociutat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92EF7A4A-364B-4087-BC68-BA9EDB5552C1}|Dao\\Dao.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\dao\\daomitjatrans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92EF7A4A-364B-4087-BC68-BA9EDB5552C1}|Dao\\Dao.csproj|solutionrelative:dao\\daomitjatrans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92EF7A4A-364B-4087-BC68-BA9EDB5552C1}|Dao\\Dao.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\dao\\daoestacio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92EF7A4A-364B-4087-BC68-BA9EDB5552C1}|Dao\\Dao.csproj|solutionrelative:dao\\daoestacio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92EF7A4A-364B-4087-BC68-BA9EDB5552C1}|Dao\\Dao.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\dao\\daociutat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92EF7A4A-364B-4087-BC68-BA9EDB5552C1}|Dao\\Dao.csproj|solutionrelative:dao\\daociutat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1831B7B5-8BC3-4EE8-B384-E7535DC2C0F2}|Model\\Model.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\model\\usuari.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1831B7B5-8BC3-4EE8-B384-E7535DC2C0F2}|Model\\Model.csproj|solutionrelative:model\\usuari.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1831B7B5-8BC3-4EE8-B384-E7535DC2C0F2}|Model\\Model.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\model\\trajecte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1831B7B5-8BC3-4EE8-B384-E7535DC2C0F2}|Model\\Model.csproj|solutionrelative:model\\trajecte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1831B7B5-8BC3-4EE8-B384-E7535DC2C0F2}|Model\\Model.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\model\\parada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1831B7B5-8BC3-4EE8-B384-E7535DC2C0F2}|Model\\Model.csproj|solutionrelative:model\\parada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1831B7B5-8BC3-4EE8-B384-E7535DC2C0F2}|Model\\Model.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\model\\mitjatrans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1831B7B5-8BC3-4EE8-B384-E7535DC2C0F2}|Model\\Model.csproj|solutionrelative:model\\mitjatrans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1831B7B5-8BC3-4EE8-B384-E7535DC2C0F2}|Model\\Model.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\model\\estacio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1831B7B5-8BC3-4EE8-B384-E7535DC2C0F2}|Model\\Model.csproj|solutionrelative:model\\estacio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1831B7B5-8BC3-4EE8-B384-E7535DC2C0F2}|Model\\Model.csproj|c:\\users\\aleix masip\\source\\repos\\modelprojecte.aleix\\model\\ciutat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1831B7B5-8BC3-4EE8-B384-E7535DC2C0F2}|Model\\Model.csproj|solutionrelative:model\\ciutat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\AppProj\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "AppProj\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\AppProj\\MainWindow.xaml.cs",
+              "RelativeToolTip": "AppProj\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAC0AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T16:49:18.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IDAOTrajecte.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\IDao\\IDAOTrajecte.cs",
+              "RelativeDocumentMoniker": "IDao\\IDAOTrajecte.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\IDao\\IDAOTrajecte.cs",
+              "RelativeToolTip": "IDao\\IDAOTrajecte.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T14:43:07.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DAOTrajecte.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Dao\\DAOTrajecte.cs",
+              "RelativeDocumentMoniker": "Dao\\DAOTrajecte.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Dao\\DAOTrajecte.cs",
+              "RelativeToolTip": "Dao\\DAOTrajecte.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T14:42:47.756Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IDAOMitjaTrans.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\IDao\\IDAOMitjaTrans.cs",
+              "RelativeDocumentMoniker": "IDao\\IDAOMitjaTrans.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\IDao\\IDAOMitjaTrans.cs",
+              "RelativeToolTip": "IDao\\IDAOMitjaTrans.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T14:40:02.051Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IDAOParada.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\IDao\\IDAOParada.cs",
+              "RelativeDocumentMoniker": "IDao\\IDAOParada.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\IDao\\IDAOParada.cs",
+              "RelativeToolTip": "IDao\\IDAOParada.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T14:38:50.044Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IDAOCiutat.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\IDao\\IDAOCiutat.cs",
+              "RelativeDocumentMoniker": "IDao\\IDAOCiutat.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\IDao\\IDAOCiutat.cs",
+              "RelativeToolTip": "IDao\\IDAOCiutat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T14:37:25.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DAOParada.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Dao\\DAOParada.cs",
+              "RelativeDocumentMoniker": "Dao\\DAOParada.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Dao\\DAOParada.cs",
+              "RelativeToolTip": "Dao\\DAOParada.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T14:29:32.6Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DAOMitjaTrans.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Dao\\DAOMitjaTrans.cs",
+              "RelativeDocumentMoniker": "Dao\\DAOMitjaTrans.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Dao\\DAOMitjaTrans.cs",
+              "RelativeToolTip": "Dao\\DAOMitjaTrans.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T14:26:44.149Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Trajecte.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Model\\Trajecte.cs",
+              "RelativeDocumentMoniker": "Model\\Trajecte.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Model\\Trajecte.cs",
+              "RelativeToolTip": "Model\\Trajecte.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA/wCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T14:19:31.31Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Parada.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Model\\Parada.cs",
+              "RelativeDocumentMoniker": "Model\\Parada.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Model\\Parada.cs",
+              "RelativeToolTip": "Model\\Parada.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T14:19:27.332Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MitjaTrans.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Model\\MitjaTrans.cs",
+              "RelativeDocumentMoniker": "Model\\MitjaTrans.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Model\\MitjaTrans.cs",
+              "RelativeToolTip": "Model\\MitjaTrans.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T14:19:23.214Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Ciutat.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Model\\Ciutat.cs",
+              "RelativeDocumentMoniker": "Model\\Ciutat.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Model\\Ciutat.cs",
+              "RelativeToolTip": "Model\\Ciutat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T14:27:21.916Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Usuari.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Model\\Usuari.cs",
+              "RelativeDocumentMoniker": "Model\\Usuari.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Model\\Usuari.cs",
+              "RelativeToolTip": "Model\\Usuari.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T14:27:15.213Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IDAOUsuari.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\IDao\\IDAOUsuari.cs",
+              "RelativeDocumentMoniker": "IDao\\IDAOUsuari.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\IDao\\IDAOUsuari.cs",
+              "RelativeToolTip": "IDao\\IDAOUsuari.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T14:24:06.986Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Dao\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "Dao\\UnitOfWork.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Dao\\UnitOfWork.cs",
+              "RelativeToolTip": "Dao\\UnitOfWork.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAmwCEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T14:18:48.772Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DAOCiutat.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Dao\\DAOCiutat.cs",
+              "RelativeDocumentMoniker": "Dao\\DAOCiutat.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Dao\\DAOCiutat.cs",
+              "RelativeToolTip": "Dao\\DAOCiutat.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAYwAwAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T14:18:33.193Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DAOUsuari.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Dao\\DAOUsuari.cs",
+              "RelativeDocumentMoniker": "Dao\\DAOUsuari.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Dao\\DAOUsuari.cs",
+              "RelativeToolTip": "Dao\\DAOUsuari.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T14:11:35.151Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DAOEstacio.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Dao\\DAOEstacio.cs",
+              "RelativeDocumentMoniker": "Dao\\DAOEstacio.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Dao\\DAOEstacio.cs",
+              "RelativeToolTip": "Dao\\DAOEstacio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-03T14:30:11.2Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IDAOEstacio.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\IDao\\IDAOEstacio.cs",
+              "RelativeDocumentMoniker": "IDao\\IDAOEstacio.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\IDao\\IDAOEstacio.cs",
+              "RelativeToolTip": "IDao\\IDAOEstacio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-03T14:30:07.305Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Estacio.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Model\\Estacio.cs",
+              "RelativeDocumentMoniker": "Model\\Estacio.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Model\\Estacio.cs",
+              "RelativeToolTip": "Model\\Estacio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T14:09:44.736Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="AppProj/AppProj.csproj" Id="e371a6e8-3ea8-4e30-9092-83a3efcba16f" />
+  <Project Path="Dao/Dao.csproj" Id="92ef7a4a-364b-4087-bc68-ba9edb5552c1" />
+  <Project Path="IDao/IDao.csproj" Id="1feb4c03-7ec5-4903-bb4c-4e0a91f1f1bb" />
+  <Project Path="Model/Model.csproj" Id="1831b7b5-8bc3-4ee8-b384-e7535dc2c0f2" />
+</Solution>
