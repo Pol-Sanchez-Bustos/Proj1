@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sgv6W2d7A8M=",
+  "dgSpecHash": "YIQ3X36f/wM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Dao\\Dao.csproj",
+  "projectFilePath": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\Dao.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Aleix Masip\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.13\\microsoft.entityframeworkcore.10.0.13.nupkg.sha512",
     "C:\\Users\\Aleix Masip\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.13\\microsoft.entityframeworkcore.abstractions.10.0.13.nupkg.sha512",

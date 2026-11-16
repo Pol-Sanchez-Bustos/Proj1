@@ -1,5 +1,4 @@
-﻿
-using DAO;
+﻿using DAO;
 using IDao;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -19,9 +18,9 @@ namespace Dao
             _context = c;
         }
 
-        public Ciutat getCiutat(String id_filtre)
+        public Ciutat getCiutat(String id_filtre, String nom_filtre = "")
         {
-            ObservableCollection<Ciutat> oc = getCiutats(id_filtre);
+            ObservableCollection<Ciutat> oc = getCiutats(id_filtre, nom_filtre);
 
             if (oc.Count == 0)
                 return null;
@@ -29,7 +28,7 @@ namespace Dao
             return oc[0];
         }
 
-        public ObservableCollection<Ciutat> getCiutats(String id_filtre)
+        public ObservableCollection<Ciutat> getCiutats(String id_filtre, String nom_filtre = "")
         {
             ObservableCollection<Ciutat> oc = new ObservableCollection<Ciutat>();
 
@@ -42,7 +41,8 @@ namespace Dao
             {
                 comanda.CommandText = @"
                     SELECT * FROM CIUTAT
-                    WHERE (:ID_TEXT = -1 OR ID = :ID_TEXT)";
+                    WHERE (:ID_TEXT = -1 OR ID = :ID_TEXT)
+                    AND (:NOM_TEXT = '' OR UPPER(NOM) LIKE UPPER(:NOM_TEXT))";
 
                 if (comanda is Oracle.ManagedDataAccess.Client.OracleCommand oracleCommand)
                     oracleCommand.BindByName = true;
@@ -57,6 +57,17 @@ namespace Dao
                 param.Value = id;
                 param.DbType = DbType.Int32;
                 comanda.Parameters.Add(param);
+
+                var param2 = comanda.CreateParameter();
+                param2.ParameterName = "NOM_TEXT";
+
+                if (String.IsNullOrWhiteSpace(nom_filtre))
+                    param2.Value = "";
+                else
+                    param2.Value = "%" + nom_filtre + "%";
+
+                param2.DbType = DbType.String;
+                comanda.Parameters.Add(param2);
 
                 using (var reader = comanda.ExecuteReader())
                 {

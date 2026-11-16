@@ -32,7 +32,7 @@ namespace DAO
             DAOTrajecte = new DAOTrajecte(_context);
             DAOParada = new DAOParada(_context);
         }
-        }
+        
 
         public void BeginTransaction() => _context.Database.BeginTransaction();
         public void Commit() => _context.Database.CurrentTransaction?.Commit();

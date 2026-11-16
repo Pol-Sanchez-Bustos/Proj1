@@ -20,10 +20,10 @@ namespace Dao
             _context = c;
         }
 
-        public Parada getParada(String ordre_filtre, String trajecte_filtre)
+        public Parada getParada(String ordre_filtre, String trajecte_filtre, String origen_id = "")
         {
             ObservableCollection<Parada> oc =
-                getParades(ordre_filtre, trajecte_filtre);
+                getParades(ordre_filtre, trajecte_filtre, origen_id);
 
             if (oc.Count == 0)
                 return null;
@@ -31,8 +31,9 @@ namespace Dao
             return oc[0];
         }
 
+
         public ObservableCollection<Parada> getParades(
-            String ordre_filtre, String trajecte_filtre)
+            String ordre_filtre, String trajecte_filtre, String origen_id = "")
         {
             ObservableCollection<Parada> oc = new ObservableCollection<Parada>();
 
@@ -46,21 +47,26 @@ namespace Dao
             using (var comanda = conexio.CreateCommand())
             {
                 comanda.CommandText = @"
-                    SELECT * FROM PARADA
-                    WHERE (:ORDRE_TEXT = -1 OR ORDRE = :ORDRE_TEXT)
-                    AND (:TRAJECTE_TEXT = -1 OR TRAJECTE = :TRAJECTE_TEXT)";
+            SELECT * FROM PARADA
+            WHERE (:ORDRE_TEXT = -1 OR ORDRE = :ORDRE_TEXT)
+            AND (:TRAJECTE_TEXT = -1 OR TRAJECTE = :TRAJECTE_TEXT)
+            AND (:ORIGEN_ID = -1 OR ESTACIO_ID = :ORIGEN_ID)";
 
                 if (comanda is Oracle.ManagedDataAccess.Client.OracleCommand oracleCommand)
                     oracleCommand.BindByName = true;
 
                 int ordre = -1;
                 int trajecte = -1;
+                int origenId = -1;
 
                 if (!Int32.TryParse(ordre_filtre, out ordre))
                     ordre = -1;
 
                 if (!Int32.TryParse(trajecte_filtre, out trajecte))
                     trajecte = -1;
+
+                if (!Int32.TryParse(origen_id, out origenId))
+                    origenId = -1;
 
                 var param = comanda.CreateParameter();
                 param.ParameterName = "ORDRE_TEXT";
@@ -73,6 +79,12 @@ namespace Dao
                 param2.Value = trajecte;
                 param2.DbType = DbType.Int32;
                 comanda.Parameters.Add(param2);
+
+                var param3 = comanda.CreateParameter();
+                param3.ParameterName = "ORIGEN_ID";
+                param3.Value = origenId;
+                param3.DbType = DbType.Int32;
+                comanda.Parameters.Add(param3);
 
                 using (var reader = comanda.ExecuteReader())
                 {
@@ -112,6 +124,65 @@ namespace Dao
             }
 
             return oc;
+        }
+
+        public ObservableCollection<int> getTrajectesEntreEstacions(
+    int origenId, int destiId, int horaSortida)
+        {
+            ObservableCollection<int> resultats = new ObservableCollection<int>();
+
+            var conexio = _context.Database.GetDbConnection();
+
+            if (conexio.State == ConnectionState.Closed)
+                conexio.Open();
+
+            using (var comanda = conexio.CreateCommand())
+            {
+                comanda.CommandText = @"
+            SELECT DISTINCT T.ID
+            FROM TRAJECTE T
+            INNER JOIN PARADA PO
+                ON PO.TRAJECTE = T.ID
+            INNER JOIN PARADA PD
+                ON PD.TRAJECTE = T.ID
+            WHERE PO.ESTACIO_ID = :ORIGEN_ID
+            AND PD.ESTACIO_ID = :DESTI_ID
+            AND PD.ORDRE > PO.ORDRE
+            AND PO.HORAPAS >= :HORA_SORTIDA
+            AND PD.HORAPAS > PO.HORAPAS
+            ORDER BY T.ID";
+
+                if (comanda is Oracle.ManagedDataAccess.Client.OracleCommand oracleCommand)
+                    oracleCommand.BindByName = true;
+
+                var param1 = comanda.CreateParameter();
+                param1.ParameterName = "ORIGEN_ID";
+                param1.Value = origenId;
+                param1.DbType = DbType.Int32;
+                comanda.Parameters.Add(param1);
+
+                var param2 = comanda.CreateParameter();
+                param2.ParameterName = "DESTI_ID";
+                param2.Value = destiId;
+                param2.DbType = DbType.Int32;
+                comanda.Parameters.Add(param2);
+
+                var param3 = comanda.CreateParameter();
+                param3.ParameterName = "HORA_SORTIDA";
+                param3.Value = horaSortida;
+                param3.DbType = DbType.Int32;
+                comanda.Parameters.Add(param3);
+
+                using (var reader = comanda.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        resultats.Add(Convert.ToInt32(reader["ID"]));
+                    }
+                }
+            }
+
+            return resultats;
         }
 
         private class ParadaDades

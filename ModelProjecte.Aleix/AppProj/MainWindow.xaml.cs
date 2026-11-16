@@ -1,5 +1,7 @@
 ﻿using DAO;
 using IDao;
+using Model;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,25 +28,117 @@ namespace AppProj
             InitializeComponent();
         }
 
+
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            
+        }
+
+        private void btBuscarTrajecte_Click(object sender, RoutedEventArgs e)
+        {
+
+            String[] origen = txtOrigen.Text.Split(',');
+            String[] desti = txtDesti.Text.Split(',');
+
+
+            if (origen.Length != 2 || desti.Length != 2)
+            {
+                MessageBox.Show("Format incorrecte. Utilitza: Ciutat, Estació");
+                return;
+            }
+
+            origen[0] = origen[0].Trim();
+            origen[1] = origen[1].Trim();
+
+            desti[0] = desti[0].Trim();
+            desti[1] = desti[1].Trim();
+
+            int origenId = -1, destiId = -1;
+
             try
             {
                 MySQLFactory.getUOW(uow =>
                 {
-                    /*IDAOCiutat dao = uow.DAOCiutat;
-                    Nom.Content = dao.getCiutat("2").Nom;
-                    dtgEx.ItemsSource = dao.getCiutats("-1");*/
+                    origenId = uow.DAOEstacio.getEstacio("-1",
+                        uow.DAOCiutat.getCiutat("-1", origen[0]).Id+"",
+                        origen[1]
+                        ).Id;
 
-                    IDAOEstacio dao = uow.DAOEstacio;
-                    Nom.Content = dao.getEstacio("2", "1").Nom;
-                    dtgEx.ItemsSource = dao.getEstacions("","");
+                    destiId = uow.DAOEstacio.getEstacio("-1",
+                        uow.DAOCiutat.getCiutat("-1", desti[0]).Id + "",
+                        desti[1]
+                        ).Id;
                 });
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Dades invalides", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
+
+
+            ObservableCollection<Parada> lisOrigen;
+            ObservableCollection<Trajecte> lisTrajecte = new ObservableCollection<Trajecte>();
+
+
+            try
+            {
+                MySQLFactory.getUOW(uow =>
+                {
+                    lisOrigen = uow.DAOParada.getParades("-1", "-1", "" +origenId);
+
+                    ObservableCollection<Trajecte> lisTrajecte = new ObservableCollection<Trajecte>();
+
+                    try
+                    {
+                        int horaSortida;
+
+                        if (!Int32.TryParse(txtSortida.Text, out horaSortida))
+                        {
+                            MessageBox.Show("Hora de sortida incorrecta.");
+                            return;
+                        }
+
+                        MySQLFactory.getUOW(uow =>
+                        {
+                            ObservableCollection<int> ids =
+                                uow.DAOParada.getTrajectesEntreEstacions(
+                                    origenId, destiId, horaSortida);
+
+                            foreach (int id in ids)
+                            {
+                                Trajecte trajecte =
+                                    uow.DAOTrajecte.getTrajecte(id.ToString());
+
+                                if (trajecte != null)
+                                    lisTrajecte.Add(trajecte);
+                            }
+                        });
+
+                        dtgTrajectes.ItemsSource = lisTrajecte;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Error",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    
+ 
+                });
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Dades invalides", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            
+
         }
     }
 }

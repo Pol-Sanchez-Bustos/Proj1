@@ -19,10 +19,11 @@ namespace Dao
             _context = c;
         }
 
-        public Estacio getEstacio(String id_filtre, String id_ciutat_filtre)
+        public Estacio getEstacio(
+        String id_filtre, String id_ciutat_filtre, String nom_filtre = "")
         {
             ObservableCollection<Estacio> oc =
-                getEstacions(id_filtre, id_ciutat_filtre);
+                getEstacions(id_filtre, id_ciutat_filtre, nom_filtre);
 
             if (oc.Count == 0)
                 return null;
@@ -31,7 +32,7 @@ namespace Dao
         }
 
         public ObservableCollection<Estacio> getEstacions(
-            String id_filtre, String id_ciutat_filtre)
+        String id_filtre, String id_ciutat_filtre, String nom_filtre = "")
         {
             ObservableCollection<Estacio> oc = new ObservableCollection<Estacio>();
 
@@ -43,9 +44,10 @@ namespace Dao
             using (var comanda = conexio.CreateCommand())
             {
                 comanda.CommandText = @"
-                    SELECT * FROM ESTACIO
-                    WHERE (:ID_TEXT = -1 OR ID = :ID_TEXT)
-                    AND (:ID_CIUTAT_TEXT = -1 OR ID_CIUTAT = :ID_CIUTAT_TEXT)";
+            SELECT * FROM ESTACIO
+            WHERE (:ID_TEXT = -1 OR ID = :ID_TEXT)
+            AND (:ID_CIUTAT_TEXT = -1 OR ID_CIUTAT = :ID_CIUTAT_TEXT)
+            AND (:NOM_TEXT = '' OR UPPER(NOM) LIKE UPPER(:NOM_TEXT))";
 
                 if (comanda is Oracle.ManagedDataAccess.Client.OracleCommand oracleCommand)
                     oracleCommand.BindByName = true;
@@ -62,14 +64,20 @@ namespace Dao
                 var param = comanda.CreateParameter();
                 param.ParameterName = "ID_TEXT";
                 param.Value = id;
-                param.DbType = System.Data.DbType.Int32;
+                param.DbType = DbType.Int32;
                 comanda.Parameters.Add(param);
 
                 var param2 = comanda.CreateParameter();
                 param2.ParameterName = "ID_CIUTAT_TEXT";
                 param2.Value = idCiutat;
-                param2.DbType = System.Data.DbType.Int32;
+                param2.DbType = DbType.Int32;
                 comanda.Parameters.Add(param2);
+
+                var param3 = comanda.CreateParameter();
+                param3.ParameterName = "NOM_TEXT";
+                param3.Value = String.IsNullOrEmpty(nom_filtre) ? "" : "%" + nom_filtre + "%";
+                param3.DbType = DbType.String;
+                comanda.Parameters.Add(param3);
 
                 using (var reader = comanda.ExecuteReader())
                 {

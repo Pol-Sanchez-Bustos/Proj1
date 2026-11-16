@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\IDao\\IDao.csproj",
+      "projectUniqueName": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\IDao\\IDao.csproj",
       "projectName": "IDao",
-      "projectPath": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\IDao\\IDao.csproj",
+      "projectPath": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\IDao\\IDao.csproj",
       "packagesPath": "C:\\Users\\Aleix Masip\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\IDao\\obj\\",
+      "outputPath": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\IDao\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -60,8 +60,8 @@
           "framework": "net10.0-windows7.0",
           "targetAlias": "net10.0-windows",
           "projectReferences": {
-            "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Model\\Model.csproj": {
-              "projectPath": "C:\\Users\\Aleix Masip\\source\\repos\\ModelProjecte.Aleix\\Model\\Model.csproj"
+            "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Model\\Model.csproj": {
+              "projectPath": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Model\\Model.csproj"
             }
           }
         }
