@@ -130,8 +130,8 @@ namespace Dao
             {
                 comanda.CommandText = @"
                     INSERT INTO USUARI
-                    (ID, EMAIL, NOM, PASSWORD, TIPUS, DATAREGISTRE)
-                    VALUES (:ID_TEXT, :EMAIL_TEXT, :NOM_TEXT,
+                    (EMAIL, NOM, PASSWORD, TIPUS, DATAREGISTRE)
+                    VALUES ( :EMAIL_TEXT, :NOM_TEXT,
                             :PASSWORD_TEXT, :TIPUS_TEXT, :DATA_TEXT)";
 
                 comanda.Transaction = transaction.GetDbTransaction();
@@ -139,12 +139,7 @@ namespace Dao
                 if (comanda is Oracle.ManagedDataAccess.Client.OracleCommand oracleCommand)
                     oracleCommand.BindByName = true;
 
-                var param = comanda.CreateParameter();
-                param.ParameterName = "ID_TEXT";
-                param.Value = usuari.Id;
-                param.DbType = DbType.Int32;
-                comanda.Parameters.Add(param);
-
+                
                 var param2 = comanda.CreateParameter();
                 param2.ParameterName = "EMAIL_TEXT";
                 param2.Value = usuari.Email;
@@ -179,7 +174,11 @@ namespace Dao
 
                 try
                 {
-                    comanda.ExecuteNonQuery();
+                    if(comanda.ExecuteNonQuery() != 1)
+                    {
+                        throw new AggregateException(
+                            "Usuari no inserit.");
+                    } 
                 }
                 catch (Exception ex)
                 {

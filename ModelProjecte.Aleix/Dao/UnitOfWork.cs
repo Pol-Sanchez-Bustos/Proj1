@@ -41,7 +41,9 @@ namespace DAO
 
         public void Dispose()
         {
-         }
+            _context.Database.CurrentTransaction?.Dispose();
+            _context.Dispose();
+        }
     }
 
 

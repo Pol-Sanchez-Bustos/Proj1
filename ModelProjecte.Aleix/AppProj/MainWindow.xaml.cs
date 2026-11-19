@@ -21,11 +21,22 @@ namespace AppProj
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        Usuari user = null;
         public MainWindow()
         {
-            
+
             
             InitializeComponent();
+        }
+
+        public MainWindow(Usuari usuari)
+        {
+
+            user = usuari;
+            
+            InitializeComponent();
+            updateMenus();
         }
 
 
@@ -139,6 +150,55 @@ namespace AppProj
 
             
 
+        }
+
+        
+
+        private void mnSignIn_Click(object sender, RoutedEventArgs e)
+        {
+            SignIn ventana = new SignIn();
+            ventana.Show();
+
+            this.Close();
+        }
+
+        private void mnLogIn_Click(object sender, RoutedEventArgs e)
+        {
+            LogIn ventana = new LogIn();
+            ventana.Show();
+
+            this.Close();
+        }
+
+        private void mnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void updateMenus()
+        {
+            if(user == null )
+            {
+                mnSignIn.Visibility = Visibility.Visible;
+                mnLogIn.Visibility = Visibility.Visible;
+
+                mnEdit.Visibility = Visibility.Collapsed;
+                mnLogOut.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                mnSignIn.Visibility = Visibility.Collapsed;
+                mnLogIn.Visibility = Visibility.Collapsed;
+
+                mnEdit.Visibility = Visibility.Visible;
+                mnLogOut.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void mnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            user = null;
+            updateMenus();
         }
     }
 }

@@ -23,6 +23,16 @@ namespace Model
             DataRegistre = dataRegistre;
         }
 
+        public Usuari(string email, string nom, string password, char tipus, DateTime dataRegistre)
+        {
+            
+            Email = email;
+            Nom = nom;
+            Password = password;
+            Tipus = tipus;
+            DataRegistre = dataRegistre;
+        }
+
         public int Id { get => id; set => id = value; }
         public string Email { get => email; set => email = value; }
         public string Nom { get => nom; set => nom = value; }

@@ -41,10 +41,10 @@
         </Grid.RowDefinitions>
 
         <Menu Grid.Column="4" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" >
-            <MenuItem Header="Sign in" >Sign In</MenuItem>
-            <MenuItem Header="Log in">Log In</MenuItem>
-            <MenuItem Header="Editor" Visibility="Collapsed"></MenuItem>
-            <MenuItem Header="Log out" Visibility="Collapsed"></MenuItem>
+            <MenuItem Header="Sign in" x:Name="mnSignIn" Click="mnSignIn_Click" ></MenuItem>
+            <MenuItem Header="Log in" x:Name="mnLogIn" Click="mnLogIn_Click"></MenuItem>
+            <MenuItem Header="Editor" x:Name="mnEdit" Click="mnEdit_Click" Visibility="Collapsed"></MenuItem>
+            <MenuItem Header="Log out" x:Name="mnLogOut" Click="mnLogOut_Click" Visibility="Collapsed"></MenuItem>
         </Menu>
 
         <Label Grid.Column="0" Grid.Row="1" Margin="0,0,0,30" Grid.RowSpan="2">Origen:</Label>
