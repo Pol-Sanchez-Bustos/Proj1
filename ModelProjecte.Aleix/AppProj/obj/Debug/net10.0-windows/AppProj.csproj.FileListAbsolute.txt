@@ -95,3 +95,5 @@ C:\Users\Aleix Masip\Documents\Repos\Proyecto\Proyecto1\ModelProjecte.Aleix\AppP
 C:\Users\Aleix Masip\Documents\Repos\Proyecto\Proyecto1\ModelProjecte.Aleix\AppProj\obj\Debug\net10.0-windows\SignIn.baml
 C:\Users\Aleix Masip\Documents\Repos\Proyecto\Proyecto1\ModelProjecte.Aleix\AppProj\obj\Debug\net10.0-windows\LogIn.g.cs
 C:\Users\Aleix Masip\Documents\Repos\Proyecto\Proyecto1\ModelProjecte.Aleix\AppProj\obj\Debug\net10.0-windows\LogIn.baml
+C:\Users\Aleix Masip\Documents\Repos\Proyecto\Proyecto1\ModelProjecte.Aleix\AppProj\obj\Debug\net10.0-windows\Administrador.g.cs
+C:\Users\Aleix Masip\Documents\Repos\Proyecto\Proyecto1\ModelProjecte.Aleix\AppProj\obj\Debug\net10.0-windows\Administrador.baml

@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|c:\\users\\aleix masip\\documents\\repos\\proyecto\\proyecto1\\modelprojecte.aleix\\appproj\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|solutionrelative:appproj\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|c:\\users\\aleix masip\\documents\\repos\\proyecto\\proyecto1\\modelprojecte.aleix\\appproj\\administrador.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|solutionrelative:appproj\\administrador.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|c:\\users\\aleix masip\\documents\\repos\\proyecto\\proyecto1\\modelprojecte.aleix\\appproj\\administrador.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|solutionrelative:appproj\\administrador.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|c:\\users\\aleix masip\\documents\\repos\\proyecto\\proyecto1\\modelprojecte.aleix\\appproj\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|solutionrelative:appproj\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|c:\\users\\aleix masip\\documents\\repos\\proyecto\\proyecto1\\modelprojecte.aleix\\appproj\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|solutionrelative:appproj\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{92EF7A4A-364B-4087-BC68-BA9EDB5552C1}|Dao\\Dao.csproj|c:\\users\\aleix masip\\documents\\repos\\proyecto\\proyecto1\\modelprojecte.aleix\\dao\\daousuari.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,12 +23,32 @@
       "RelativeMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|solutionrelative:appproj\\signin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|c:\\users\\aleix masip\\documents\\repos\\proyecto\\proyecto1\\modelprojecte.aleix\\appproj\\signin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|solutionrelative:appproj\\signin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|c:\\users\\aleix masip\\documents\\repos\\proyecto\\proyecto1\\modelprojecte.aleix\\appproj\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|solutionrelative:appproj\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|c:\\users\\aleix masip\\documents\\repos\\proyecto\\proyecto1\\modelprojecte.aleix\\appproj\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|solutionrelative:appproj\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|c:\\users\\aleix masip\\documents\\repos\\proyecto\\proyecto1\\modelprojecte.aleix\\appproj\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|solutionrelative:appproj\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|c:\\users\\aleix masip\\documents\\repos\\proyecto\\proyecto1\\modelprojecte.aleix\\appproj\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|solutionrelative:appproj\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1831B7B5-8BC3-4EE8-B384-E7535DC2C0F2}|Model\\Model.csproj|c:\\users\\aleix masip\\documents\\repos\\proyecto\\proyecto1\\modelprojecte.aleix\\model\\usuari.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1831B7B5-8BC3-4EE8-B384-E7535DC2C0F2}|Model\\Model.csproj|solutionrelative:model\\usuari.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|c:\\users\\aleix masip\\documents\\repos\\proyecto\\proyecto1\\modelprojecte.aleix\\appproj\\signin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|solutionrelative:appproj\\signin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|c:\\users\\aleix masip\\documents\\repos\\proyecto\\proyecto1\\modelprojecte.aleix\\appproj\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|solutionrelative:appproj\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{92EF7A4A-364B-4087-BC68-BA9EDB5552C1}|Dao\\Dao.csproj|c:\\users\\aleix masip\\documents\\repos\\proyecto\\proyecto1\\modelprojecte.aleix\\dao\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -45,10 +65,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{92EF7A4A-364B-4087-BC68-BA9EDB5552C1}|Dao\\Dao.csproj|c:\\users\\aleix masip\\documents\\repos\\proyecto\\proyecto1\\modelprojecte.aleix\\dao\\daomitjatrans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{92EF7A4A-364B-4087-BC68-BA9EDB5552C1}|Dao\\Dao.csproj|solutionrelative:dao\\daomitjatrans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|c:\\users\\aleix masip\\documents\\repos\\proyecto\\proyecto1\\modelprojecte.aleix\\appproj\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{E371A6E8-3EA8-4E30-9092-83A3EFCBA16F}|AppProj\\AppProj.csproj|solutionrelative:appproj\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1FEB4C03-7EC5-4903-BB4C-4E0A91F1F1BB}|IDao\\IDao.csproj|c:\\users\\aleix masip\\documents\\repos\\proyecto\\proyecto1\\modelprojecte.aleix\\idao\\idaousuari.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -133,84 +149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SignIn.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\SignIn.xaml.cs",
-              "RelativeDocumentMoniker": "AppProj\\SignIn.xaml.cs",
-              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\SignIn.xaml.cs",
-              "RelativeToolTip": "AppProj\\SignIn.xaml.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAIwEoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-17T14:13:49.661Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "AppProj\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\MainWindow.xaml.cs",
-              "RelativeToolTip": "AppProj\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAIwAAAAAAAAAAAAowCQAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-10T16:49:18.198Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LogIn.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\LogIn.xaml.cs",
-              "RelativeDocumentMoniker": "AppProj\\LogIn.xaml.cs",
-              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\LogIn.xaml.cs",
-              "RelativeToolTip": "AppProj\\LogIn.xaml.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAmwEsAAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-17T15:07:45.499Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LogIn.xaml",
-              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\LogIn.xaml",
-              "RelativeDocumentMoniker": "AppProj\\LogIn.xaml",
-              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\LogIn.xaml",
-              "RelativeToolTip": "AppProj\\LogIn.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-11-17T14:33:47.14Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DAOUsuari.cs",
-              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\DAOUsuari.cs",
-              "RelativeDocumentMoniker": "Dao\\DAOUsuari.cs",
-              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\DAOUsuari.cs",
-              "RelativeToolTip": "Dao\\DAOUsuari.cs",
-              "ViewState": "AgIAAIMAAAAAAAAAAAAAAO0AAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T14:11:35.151Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Usuari.cs",
-              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Model\\Usuari.cs",
-              "RelativeDocumentMoniker": "Model\\Usuari.cs",
-              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Model\\Usuari.cs",
-              "RelativeToolTip": "Model\\Usuari.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAmwCkAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T14:27:15.213Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "SignIn.xaml",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\SignIn.xaml",
               "RelativeDocumentMoniker": "AppProj\\SignIn.xaml",
@@ -222,46 +161,96 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UnitOfWork.cs",
-              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\UnitOfWork.cs",
-              "RelativeDocumentMoniker": "Dao\\UnitOfWork.cs",
-              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\UnitOfWork.cs",
-              "RelativeToolTip": "Dao\\UnitOfWork.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAowC0AAAAJAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "SignIn.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\SignIn.xaml.cs",
+              "RelativeDocumentMoniker": "AppProj\\SignIn.xaml.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\SignIn.xaml.cs",
+              "RelativeToolTip": "AppProj\\SignIn.xaml.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAgwGMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T14:18:48.772Z",
+              "WhenOpened": "2026-11-17T14:13:49.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Administrador.xaml",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\Administrador.xaml",
+              "RelativeDocumentMoniker": "AppProj\\Administrador.xaml",
+              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\Administrador.xaml",
+              "RelativeToolTip": "AppProj\\Administrador.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-11-19T15:00:30.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Administrador.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\Administrador.xaml.cs",
+              "RelativeDocumentMoniker": "AppProj\\Administrador.xaml.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\Administrador.xaml.cs",
+              "RelativeToolTip": "AppProj\\Administrador.xaml.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAqwEEAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-19T15:06:54.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "AppProj\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\MainWindow.xaml.cs",
+              "RelativeToolTip": "AppProj\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAowIwAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T16:49:18.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DAOUsuari.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\DAOUsuari.cs",
+              "RelativeDocumentMoniker": "Dao\\DAOUsuari.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\DAOUsuari.cs",
+              "RelativeToolTip": "Dao\\DAOUsuari.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAYwCoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T14:11:35.151Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LogIn.xaml",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\LogIn.xaml",
+              "RelativeDocumentMoniker": "AppProj\\LogIn.xaml",
+              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\LogIn.xaml",
+              "RelativeToolTip": "AppProj\\LogIn.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-11-17T14:33:47.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LogIn.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\LogIn.xaml.cs",
+              "RelativeDocumentMoniker": "AppProj\\LogIn.xaml.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\LogIn.xaml.cs",
+              "RelativeToolTip": "AppProj\\LogIn.xaml.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAuwFIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-17T15:07:45.499Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "MyDBContext.cs",
-              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\MyDBContext.cs",
-              "RelativeDocumentMoniker": "Dao\\MyDBContext.cs",
-              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\MyDBContext.cs",
-              "RelativeToolTip": "Dao\\MyDBContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-16T14:44:29.841Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "MySQLFactory.cs",
-              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\MySQLFactory.cs",
-              "RelativeDocumentMoniker": "Dao\\MySQLFactory.cs",
-              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\MySQLFactory.cs",
-              "RelativeToolTip": "Dao\\MySQLFactory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-16T14:44:29.082Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\MainWindow.xaml",
               "RelativeDocumentMoniker": "AppProj\\MainWindow.xaml",
@@ -273,7 +262,81 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "AppProj\\AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\AssemblyInfo.cs",
+              "RelativeToolTip": "AppProj\\AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-19T16:27:56.507Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 10,
+              "Title": "Usuari.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Model\\Usuari.cs",
+              "RelativeDocumentMoniker": "Model\\Usuari.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Model\\Usuari.cs",
+              "RelativeToolTip": "Model\\Usuari.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAkwBkAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T14:27:15.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\App.xaml",
+              "RelativeDocumentMoniker": "AppProj\\App.xaml",
+              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\AppProj\\App.xaml",
+              "RelativeToolTip": "AppProj\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-11-19T15:06:36.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "Dao\\UnitOfWork.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\UnitOfWork.cs",
+              "RelativeToolTip": "Dao\\UnitOfWork.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAowC0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T14:18:48.772Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MyDBContext.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\MyDBContext.cs",
+              "RelativeDocumentMoniker": "Dao\\MyDBContext.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\MyDBContext.cs",
+              "RelativeToolTip": "Dao\\MyDBContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T14:44:29.841Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MySQLFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\MySQLFactory.cs",
+              "RelativeDocumentMoniker": "Dao\\MySQLFactory.cs",
+              "ToolTip": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\MySQLFactory.cs",
+              "RelativeToolTip": "Dao\\MySQLFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T14:44:29.082Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "DAOMitjaTrans.cs",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\DAOMitjaTrans.cs",
               "RelativeDocumentMoniker": "Dao\\DAOMitjaTrans.cs",
@@ -281,12 +344,11 @@
               "RelativeToolTip": "Dao\\DAOMitjaTrans.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAgwDoAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-10T14:26:44.149Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-10T14:26:44.149Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "IDAOUsuari.cs",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\IDao\\IDAOUsuari.cs",
               "RelativeDocumentMoniker": "IDao\\IDAOUsuari.cs",
@@ -294,12 +356,11 @@
               "RelativeToolTip": "IDao\\IDAOUsuari.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T14:24:06.986Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-09T14:24:06.986Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 22,
               "Title": "Estacio.cs",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Model\\Estacio.cs",
               "RelativeDocumentMoniker": "Model\\Estacio.cs",
@@ -311,7 +372,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "XamlReader.cs",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\AppData\\Local\\Temp\\.vsdbgsrc\\5777f8f58c79eefc910c22f36dc6e3ab0978bdf3164b059da877268b9413cda6\\XamlReader.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\5777f8f58c79eefc910c22f36dc6e3ab0978bdf3164b059da877268b9413cda6\\XamlReader.cs",
@@ -324,7 +385,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 20,
               "Title": "IDAOParada.cs",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\IDao\\IDAOParada.cs",
               "RelativeDocumentMoniker": "IDao\\IDAOParada.cs",
@@ -336,7 +397,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 23,
               "Title": "Trajecte.cs",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Model\\Trajecte.cs",
               "RelativeDocumentMoniker": "Model\\Trajecte.cs",
@@ -348,7 +409,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "DAOTrajecte.cs",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\DAOTrajecte.cs",
               "RelativeDocumentMoniker": "Dao\\DAOTrajecte.cs",
@@ -360,7 +421,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "DAOParada.cs",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\DAOParada.cs",
               "RelativeDocumentMoniker": "Dao\\DAOParada.cs",
@@ -372,7 +433,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 21,
               "Title": "IDAOCiutat.cs",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\IDao\\IDAOCiutat.cs",
               "RelativeDocumentMoniker": "IDao\\IDAOCiutat.cs",
@@ -384,7 +445,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 24,
               "Title": "Parada.cs",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Model\\Parada.cs",
               "RelativeDocumentMoniker": "Model\\Parada.cs",
@@ -396,7 +457,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 25,
               "Title": "DAOEstacio.cs",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\DAOEstacio.cs",
               "RelativeDocumentMoniker": "Dao\\DAOEstacio.cs",
@@ -408,7 +469,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 26,
               "Title": "IDAOEstacio.cs",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\IDao\\IDAOEstacio.cs",
               "RelativeDocumentMoniker": "IDao\\IDAOEstacio.cs",
@@ -420,7 +481,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 27,
               "Title": "DAOCiutat.cs",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Dao\\DAOCiutat.cs",
               "RelativeDocumentMoniker": "Dao\\DAOCiutat.cs",
@@ -432,7 +493,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 28,
               "Title": "IDAOTrajecte.cs",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\IDao\\IDAOTrajecte.cs",
               "RelativeDocumentMoniker": "IDao\\IDAOTrajecte.cs",
@@ -444,7 +505,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 29,
               "Title": "IDAOMitjaTrans.cs",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\IDao\\IDAOMitjaTrans.cs",
               "RelativeDocumentMoniker": "IDao\\IDAOMitjaTrans.cs",
@@ -456,7 +517,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 30,
               "Title": "MitjaTrans.cs",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Model\\MitjaTrans.cs",
               "RelativeDocumentMoniker": "Model\\MitjaTrans.cs",
@@ -468,7 +529,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 31,
               "Title": "Ciutat.cs",
               "DocumentMoniker": "C:\\Users\\Aleix Masip\\Documents\\Repos\\Proyecto\\Proyecto1\\ModelProjecte.Aleix\\Model\\Ciutat.cs",
               "RelativeDocumentMoniker": "Model\\Ciutat.cs",

@@ -79,5 +79,24 @@ namespace AppProj
                 }
             }
         }
+
+        private void txtEmail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(Key.Enter == e.Key) { 
+                txtPassword.Focus();
+            
+            }
+
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Key.Enter == e.Key)
+            {
+                btIniciSessio_Click(sender, e);
+
+            }
+
+        }
     }
 }

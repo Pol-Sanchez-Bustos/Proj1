@@ -172,6 +172,13 @@ namespace AppProj
 
         private void mnEdit_Click(object sender, RoutedEventArgs e)
         {
+            if(user.Tipus == 'A')
+            {
+                Administrador ventana = new Administrador(user);
+                ventana.Show();
+
+                this.Close();
+            }
 
         }
 

@@ -33,12 +33,12 @@
 
         <StackPanel Grid.Row="1" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label>Email:</Label>
-            <TextBox x:Name="txtEmail"/>
+            <TextBox x:Name="txtEmail" KeyDown="txtEmail_KeyDown"/>
 
             
 
             <Label>Password:</Label>
-            <PasswordBox x:Name="txtPassword" Height="28" Margin="0,0,0,10"/>
+            <PasswordBox x:Name="txtPassword" Height="28" Margin="0,0,0,10" KeyDown="txtPassword_KeyDown"/>
 
             <Button Width="90" HorizontalAlignment="Center" x:Name="btIniciSessio" Click="btIniciSessio_Click">Log In</Button>
         </StackPanel>
