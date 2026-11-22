@@ -29,3 +29,19 @@ C:\Users\Aleix Masip\Documents\Repos\Proyecto\Proyecto1\ModelProjecte.Aleix\IDao
 C:\Users\Aleix Masip\Documents\Repos\Proyecto\Proyecto1\ModelProjecte.Aleix\IDao\obj\Debug\net10.0-windows\refint\IDao.dll
 C:\Users\Aleix Masip\Documents\Repos\Proyecto\Proyecto1\ModelProjecte.Aleix\IDao\obj\Debug\net10.0-windows\IDao.pdb
 C:\Users\Aleix Masip\Documents\Repos\Proyecto\Proyecto1\ModelProjecte.Aleix\IDao\obj\Debug\net10.0-windows\ref\IDao.dll
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\IDao\bin\Debug\net10.0-windows\IDao.deps.json
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\IDao\bin\Debug\net10.0-windows\IDao.dll
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\IDao\bin\Debug\net10.0-windows\IDao.pdb
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\IDao\bin\Debug\net10.0-windows\Model.dll
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\IDao\bin\Debug\net10.0-windows\Model.pdb
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\IDao\obj\Debug\net10.0-windows\IDao.csproj.AssemblyReference.cache
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\IDao\obj\Debug\net10.0-windows\IDao.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\IDao\obj\Debug\net10.0-windows\IDao.AssemblyInfoInputs.cache
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\IDao\obj\Debug\net10.0-windows\IDao.AssemblyInfo.cs
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\IDao\obj\Debug\net10.0-windows\IDao.csproj.CoreCompileInputs.cache
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\IDao\obj\Debug\net10.0-windows\IDao.sourcelink.json
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\IDao\obj\Debug\net10.0-windows\IDao.csproj.Up2Date
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\IDao\obj\Debug\net10.0-windows\IDao.dll
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\IDao\obj\Debug\net10.0-windows\refint\IDao.dll
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\IDao\obj\Debug\net10.0-windows\IDao.pdb
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\IDao\obj\Debug\net10.0-windows\ref\IDao.dll

@@ -107,11 +107,12 @@ namespace AppProj
                     {
                         int horaSortida;
 
-                        if (!Int32.TryParse(txtSortida.Text, out horaSortida))
-                        {
-                            MessageBox.Show("Hora de sortida incorrecta.");
-                            return;
-                        }
+                        string[] parts = txtSortida.Text.Split(':');
+
+                        int hores = int.Parse(parts[0]);
+                        int minuts = int.Parse(parts[1]);
+
+                        horaSortida = (hores * 60) + minuts;
 
                         MySQLFactory.getUOW(uow =>
                         {
@@ -172,14 +173,20 @@ namespace AppProj
 
         private void mnEdit_Click(object sender, RoutedEventArgs e)
         {
-            if(user.Tipus == 'A')
-            {
-                Administrador ventana = new Administrador(user);
-                ventana.Show();
+            
+            Editor ventana = new Editor(user);
+            ventana.Show();
 
-                this.Close();
-            }
+            this.Close();
 
+        }
+
+        private void mnAdmin_Click(object sender, RoutedEventArgs e)
+        {
+            Administrador ventana = new Administrador(user);
+            ventana.Show();
+
+            this.Close();
         }
 
         private void updateMenus()
@@ -190,6 +197,7 @@ namespace AppProj
                 mnLogIn.Visibility = Visibility.Visible;
 
                 mnEdit.Visibility = Visibility.Collapsed;
+                mnAdmin.Visibility = Visibility.Collapsed;
                 mnLogOut.Visibility = Visibility.Collapsed;
             }
             else
@@ -197,7 +205,9 @@ namespace AppProj
                 mnSignIn.Visibility = Visibility.Collapsed;
                 mnLogIn.Visibility = Visibility.Collapsed;
 
+                
                 mnEdit.Visibility = Visibility.Visible;
+                if(user.Tipus == 'A')mnAdmin.Visibility = Visibility.Visible;
                 mnLogOut.Visibility = Visibility.Visible;
             }
         }
@@ -207,5 +217,7 @@ namespace AppProj
             user = null;
             updateMenus();
         }
+
+        
     }
 }

@@ -33,3 +33,21 @@ C:\Users\Aleix Masip\Documents\Repos\Proyecto\Proyecto1\ModelProjecte.Aleix\Dao\
 C:\Users\Aleix Masip\Documents\Repos\Proyecto\Proyecto1\ModelProjecte.Aleix\Dao\bin\Debug\net10.0-windows\Model.pdb
 C:\Users\Aleix Masip\Documents\Repos\Proyecto\Proyecto1\ModelProjecte.Aleix\Dao\obj\Debug\net10.0-windows\Dao.csproj.Up2Date
 C:\Users\Aleix Masip\Documents\Repos\Proyecto\Proyecto1\ModelProjecte.Aleix\Dao\obj\Debug\net10.0-windows\ref\Dao.dll
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\Dao\bin\Debug\net10.0-windows\Dao.deps.json
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\Dao\bin\Debug\net10.0-windows\Dao.dll
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\Dao\bin\Debug\net10.0-windows\Dao.pdb
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\Dao\bin\Debug\net10.0-windows\IDao.dll
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\Dao\bin\Debug\net10.0-windows\Model.dll
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\Dao\bin\Debug\net10.0-windows\IDao.pdb
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\Dao\bin\Debug\net10.0-windows\Model.pdb
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\Dao\obj\Debug\net10.0-windows\Dao.csproj.AssemblyReference.cache
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\Dao\obj\Debug\net10.0-windows\Dao.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\Dao\obj\Debug\net10.0-windows\Dao.AssemblyInfoInputs.cache
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\Dao\obj\Debug\net10.0-windows\Dao.AssemblyInfo.cs
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\Dao\obj\Debug\net10.0-windows\Dao.csproj.CoreCompileInputs.cache
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\Dao\obj\Debug\net10.0-windows\Dao.sourcelink.json
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\Dao\obj\Debug\net10.0-windows\Dao.csproj.Up2Date
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\Dao\obj\Debug\net10.0-windows\Dao.dll
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\Dao\obj\Debug\net10.0-windows\refint\Dao.dll
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\Dao\obj\Debug\net10.0-windows\Dao.pdb
+C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\Dao\obj\Debug\net10.0-windows\ref\Dao.dll

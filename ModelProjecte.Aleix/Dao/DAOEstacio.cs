@@ -47,7 +47,7 @@ namespace Dao
             SELECT * FROM ESTACIO
             WHERE (:ID_TEXT = -1 OR ID = :ID_TEXT)
             AND (:ID_CIUTAT_TEXT = -1 OR ID_CIUTAT = :ID_CIUTAT_TEXT)
-            AND (:NOM_TEXT = '' OR UPPER(NOM) LIKE UPPER(:NOM_TEXT))";
+            AND (:NOM_TEXT IS NULL OR UPPER(NOM) LIKE UPPER(:NOM_TEXT))";
 
                 if (comanda is Oracle.ManagedDataAccess.Client.OracleCommand oracleCommand)
                     oracleCommand.BindByName = true;
@@ -75,7 +75,9 @@ namespace Dao
 
                 var param3 = comanda.CreateParameter();
                 param3.ParameterName = "NOM_TEXT";
-                param3.Value = String.IsNullOrEmpty(nom_filtre) ? "" : "%" + nom_filtre + "%";
+                param3.Value = String.IsNullOrEmpty(nom_filtre)
+                    ? DBNull.Value
+                    : "%" + nom_filtre + "%";
                 param3.DbType = DbType.String;
                 comanda.Parameters.Add(param3);
 

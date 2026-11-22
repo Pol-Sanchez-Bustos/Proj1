@@ -42,15 +42,14 @@ namespace Dao
             if (conexio.State == ConnectionState.Closed)
                 conexio.Open();
 
-            var dades = new List<ParadaDades>();
-
             using (var comanda = conexio.CreateCommand())
             {
                 comanda.CommandText = @"
             SELECT * FROM PARADA
             WHERE (:ORDRE_TEXT = -1 OR ORDRE = :ORDRE_TEXT)
             AND (:TRAJECTE_TEXT = -1 OR TRAJECTE = :TRAJECTE_TEXT)
-            AND (:ORIGEN_ID = -1 OR ESTACIO_ID = :ORIGEN_ID)";
+            AND (:ORIGEN_ID = -1 OR ESTACIO_ID = :ORIGEN_ID) 
+            ORDER BY ORDRE";
 
                 if (comanda is Oracle.ManagedDataAccess.Client.OracleCommand oracleCommand)
                     oracleCommand.BindByName = true;
@@ -90,38 +89,32 @@ namespace Dao
                 {
                     while (reader.Read())
                     {
-                        dades.Add(new ParadaDades
+                        int or = reader.GetInt32(reader.GetOrdinal("estacio_id"));
+                        int tr = reader.GetInt32(reader.GetOrdinal("TRAJECTE"));
+                        int ord = reader.GetInt32(reader.GetOrdinal("ordre"));
+                        int hp = reader.GetInt32(reader.GetOrdinal("horapas"));
+
+                        MySQLFactory.getUOW(uow =>
                         {
-                            Ordre = Convert.ToInt32(reader["ORDRE"]),
-                            HoraPas = Convert.ToInt32(reader["HORAPAS"]),
-                            EstacioId = Convert.ToInt32(reader["ESTACIO_ID"]),
-                            TrajecteId = Convert.ToInt32(reader["TRAJECTE"])
+                            Estacio estacio = uow.DAOEstacio.getEstacio(
+                                or.ToString(), "-1", "");
+
+                            Trajecte trajecte = uow.DAOTrajecte.getTrajecte(
+                                ""+tr);
+                            oc.Add(new Parada(
+                                ord,
+                                hp,
+                                estacio,
+                                trajecte
+                            ));
                         });
+
+
                     }
                 }
             }
 
-            foreach (var d in dades)
-            {
-                Estacio estacio = null;
-                Trajecte trajecte = null;
-
-                MySQLFactory.getUOW(uow =>
-                {
-                    estacio = uow.DAOEstacio.getEstacio(
-                        d.EstacioId.ToString(), "-1");
-
-                    trajecte = uow.DAOTrajecte.getTrajecte(
-                        d.TrajecteId.ToString());
-                });
-
-                oc.Add(new Parada(
-                    d.Ordre,
-                    d.HoraPas,
-                    estacio,
-                    trajecte
-                ));
-            }
+            
 
             return oc;
         }

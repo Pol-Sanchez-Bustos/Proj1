@@ -2,6 +2,7 @@
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +23,9 @@ namespace AppProj
         public LogIn()
         {
             InitializeComponent();
+            
+
+            
         }
 
         private void btReturn_Click(object sender, RoutedEventArgs e)
@@ -53,7 +57,7 @@ namespace AppProj
                         {
                             error_id = -2;
                             user = uow.DAOUsuari.getUsuariLogin(email, password);
-                            if(user.Tipus == 'B')error_id = -3;
+                            if(user != null && user.Tipus == 'B')error_id = -3;
                         }
                     });
                 }

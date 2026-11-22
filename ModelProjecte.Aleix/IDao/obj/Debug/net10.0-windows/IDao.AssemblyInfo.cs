@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IDao")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b380683368f87de52c64012e788ceab1937aaca")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+daa4ce1dae0033d81a905366e9a2090ac53abcba")]
 [assembly: System.Reflection.AssemblyProductAttribute("IDao")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IDao")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

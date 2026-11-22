@@ -251,5 +251,91 @@ namespace Dao
                 }
             }
         }
+
+        public void updateUsuari(Usuari usuari)
+        {
+            var conexio = _context.Database.GetDbConnection();
+
+            if (conexio.State == ConnectionState.Closed)
+                conexio.Open();
+
+            var transaction = _context.Database.CurrentTransaction;
+
+            if (transaction == null)
+                throw new InvalidOperationException("No hi ha cap transacció activa.");
+
+            using (var comanda = conexio.CreateCommand())
+            {
+                comanda.CommandText = @"
+            UPDATE USUARI
+            SET EMAIL = :EMAIL_TEXT,
+                NOM = :NOM_TEXT,
+                PASSWORD = :PASSWORD_TEXT,
+                TIPUS = :TIPUS_TEXT
+            WHERE ID = :ID_TEXT";
+
+                comanda.Transaction = transaction.GetDbTransaction();
+
+                if (comanda is Oracle.ManagedDataAccess.Client.OracleCommand oracleCommand)
+                    oracleCommand.BindByName = true;
+
+                var param = comanda.CreateParameter();
+                param.ParameterName = "EMAIL_TEXT";
+                param.Value = usuari.Email;
+                param.DbType = DbType.String;
+                comanda.Parameters.Add(param);
+
+                var param2 = comanda.CreateParameter();
+                param2.ParameterName = "NOM_TEXT";
+                param2.Value = usuari.Nom;
+                param2.DbType = DbType.String;
+                comanda.Parameters.Add(param2);
+
+                var param3 = comanda.CreateParameter();
+                param3.ParameterName = "PASSWORD_TEXT";
+                param3.Value = usuari.Password;
+                param3.DbType = DbType.String;
+                comanda.Parameters.Add(param3);
+
+                var param4 = comanda.CreateParameter();
+                param4.ParameterName = "TIPUS_TEXT";
+                param4.Value = usuari.Tipus.ToString();
+                param4.DbType = DbType.StringFixedLength;
+                comanda.Parameters.Add(param4);
+
+                var param5 = comanda.CreateParameter();
+                param5.ParameterName = "ID_TEXT";
+                param5.Value = usuari.Id;
+                param5.DbType = DbType.Int32;
+                comanda.Parameters.Add(param5);
+
+                transaction.CreateSavepoint("sp1");
+
+                try
+                {
+                    if (comanda.ExecuteNonQuery() != 1)
+                    {
+                        transaction.RollbackToSavepoint("sp1");
+                        throw new AggregateException("Usuari no actualitzat.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    try
+                    {
+                        transaction.RollbackToSavepoint("sp1");
+                    }
+                    catch (Exception rollbackEx)
+                    {
+                        throw new AggregateException(
+                            "Error en eliminar l'usuari i fer rollback.",
+                            ex, rollbackEx);
+                    }
+
+                    throw new AggregateException(
+                        "Error en actualitzar l'usuari " + usuari.Id + ".", ex);
+                }
+            }
+        }
     }
 }

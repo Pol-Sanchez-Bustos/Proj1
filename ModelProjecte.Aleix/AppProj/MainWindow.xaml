@@ -40,10 +40,11 @@
 
         </Grid.RowDefinitions>
 
-        <Menu Grid.Column="4" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" >
+        <Menu Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.ColumnSpan="5">
             <MenuItem Header="Sign in" x:Name="mnSignIn" Click="mnSignIn_Click" ></MenuItem>
             <MenuItem Header="Log in" x:Name="mnLogIn" Click="mnLogIn_Click"></MenuItem>
-            <MenuItem Header="Editor" x:Name="mnEdit" Click="mnEdit_Click" Visibility="Collapsed"></MenuItem>
+            <MenuItem Header="Editar" x:Name="mnEdit" Click="mnEdit_Click" Visibility="Collapsed"></MenuItem>
+            <MenuItem Header="Administrar" x:Name="mnAdmin" Click="mnAdmin_Click" Visibility="Collapsed"></MenuItem>
             <MenuItem Header="Log out" x:Name="mnLogOut" Click="mnLogOut_Click" Visibility="Collapsed"></MenuItem>
         </Menu>
 
