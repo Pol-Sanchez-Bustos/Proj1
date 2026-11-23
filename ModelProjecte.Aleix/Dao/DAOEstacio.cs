@@ -22,8 +22,7 @@ namespace Dao
         public Estacio getEstacio(
         String id_filtre, String id_ciutat_filtre, String nom_filtre = "")
         {
-            ObservableCollection<Estacio> oc =
-                getEstacions(id_filtre, id_ciutat_filtre, nom_filtre);
+            ObservableCollection<Estacio> oc = getEstacions(id_filtre, id_ciutat_filtre, nom_filtre);
 
             if (oc.Count == 0)
                 return null;
@@ -31,8 +30,9 @@ namespace Dao
             return oc[0];
         }
 
+
         public ObservableCollection<Estacio> getEstacions(
-        String id_filtre, String id_ciutat_filtre, String nom_filtre = "")
+            String id_filtre, String id_ciutat_filtre, String nom_filtre = "")
         {
             ObservableCollection<Estacio> oc = new ObservableCollection<Estacio>();
 
@@ -47,7 +47,8 @@ namespace Dao
             SELECT * FROM ESTACIO
             WHERE (:ID_TEXT = -1 OR ID = :ID_TEXT)
             AND (:ID_CIUTAT_TEXT = -1 OR ID_CIUTAT = :ID_CIUTAT_TEXT)
-            AND (:NOM_TEXT IS NULL OR UPPER(NOM) LIKE UPPER(:NOM_TEXT))";
+            AND (:NOM_TEXT IS NULL OR UPPER(NOM) LIKE UPPER(:NOM_TEXT))
+            ORDER BY ID";
 
                 if (comanda is Oracle.ManagedDataAccess.Client.OracleCommand oracleCommand)
                     oracleCommand.BindByName = true;
@@ -86,34 +87,33 @@ namespace Dao
                     while (reader.Read())
                     {
                         int idEstacio = Convert.ToInt32(reader["ID"]);
-                        int idC = Convert.ToInt32(reader["ID_CIUTAT"]);
+                        int idCity = Convert.ToInt32(reader["ID_CIUTAT"]);
+
                         String nom = Convert.ToString(reader["NOM"]);
                         Double lat = Convert.ToDouble(reader["LATITUD"]);
                         Double lon = Convert.ToDouble(reader["LONGITUD"]);
 
-                        oc.Add(new Estacio(
-                            idEstacio, nom, lat, lon,
-                            new Ciutat(idC, "")
-                        ));
+                        Ciutat ciutat = null;
+
+                        DAOCiutat daoCiutat = new DAOCiutat(_context);
+                        ciutat = daoCiutat.getCiutat(""+idCity,"");
+
+                        Estacio estacio = new Estacio(
+                            idEstacio,
+                            nom,
+                            lat,
+                            lon,
+                            ciutat
+                        );
+
+                        oc.Add(estacio);
                     }
                 }
             }
 
-            for (int i = 0; i < oc.Count; i++)
-            {
-                Ciutat ciutat = null;
-
-                MySQLFactory.getUOW(uow =>
-                {
-                    IDAOCiutat dao = uow.DAOCiutat;
-                    ciutat = dao.getCiutat(oc[i].Ciutat.Id.ToString());
-                });
-
-                oc[i].Ciutat = ciutat;
-            }
-
             return oc;
         }
+
 
         public void insertEstacio(Estacio est)
         {

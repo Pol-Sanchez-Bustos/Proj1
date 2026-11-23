@@ -100,7 +100,7 @@ namespace AppProj
                     txtHora.IsEnabled = true;
                     btPuja.IsEnabled = true;
                     btBaixa.IsEnabled = true;
-                    btNovaParada.Content = "Nova Parada";
+                    btNovaParada.Content = "Guardar cambis parada";
                     break;
 
                 case Estat.CREACIO:
@@ -250,17 +250,47 @@ namespace AppProj
                 estatParada = Estat.EDICIO;
                 estatParadaUpdate();
 
+                
+
                 Parada pd = dtgParades.SelectedItem as Parada;
 
-                txtEstacio.Text = pd.Estacio.Nom;
-                txtHora.Text = pd.HoraPasFormat;
+                if (pd == null)
+                {
+                    MessageBox.Show("La parada es null");
+                    return;
+                }
 
-                if(pd.Ordre == 1)
+                if (pd.Estacio == null)
+                {
+                    MessageBox.Show("La estación es null");
+                    return;
+                }
+
+                if (pd.Estacio.Ciutat == null)
+                {
+                    MessageBox.Show("La ciudad de la estación es null");
+                    return;
+                }
+
+                if (pd.Estacio.Ciutat.Nom == null)
+                {
+                    MessageBox.Show("El nombre de la ciudad es null");
+                    return;
+                }
+
+
+                txtEstacio.Text = pd.Estacio.Ciutat.Nom+","+pd.Estacio.Nom;
+                txtEstacio.BorderBrush = Brushes.Black;
+
+                txtHora.Text = pd.HoraPasFormat;
+                txtHora.BorderBrush = Brushes.Black;
+
+                if (pd.Ordre == 0)
                 {
                     btPuja.IsEnabled = false;
                 }
 
-                if (pd.Ordre == paradaOc.Count)
+                if (pd.Ordre == paradaOc.Count-1)
                 {
                     btBaixa.IsEnabled = false;
                 }
@@ -271,30 +301,158 @@ namespace AppProj
 
         private void btNovaParada_Click(object sender, RoutedEventArgs e)
         {
-            if (estatParada != Estat.CREACIO) {
+            if (estatParada == Estat.IDLE) {
                 txtEstacio.Text = "";
                 txtHora.Text = "";
                 dtgParades.SelectedItem = null;
                 estatParada = Estat.CREACIO;
                 estatParadaUpdate();
+
             }
-            else
+            else if (estatParada == Estat.CREACIO)
             {
                 Trajecte tj = dtgTrajectes.SelectedItem as Trajecte;
 
-                int horaSortida;
+                bool valid = true;
 
-                string[] parts = txtHora.Text.Split(':');
+                Estacio  est = null;
 
-                int hores = int.Parse(parts[0]);
-                int minuts = int.Parse(parts[1]);
+                MySQLFactory.getUOW(uow =>
+                {
+                    String[] origen = txtEstacio.Text.Split(',');
 
-                horaSortida = (hores * 60) + minuts;
 
-                Parada pd = new Parada(paradaOc.Count + 1, horaSortida, null, tj);
+                    if (origen.Length != 2)
+                    {
+                        txtEstacio.BorderBrush = Brushes.IndianRed;
+                        valid = false;
+                    }
+                    else
+                    {
 
-                paradaOc.Add(pd);
+                        origen[0] = origen[0].Trim();
+                        origen[1] = origen[1].Trim();
 
+                        try
+                        {
+                            MySQLFactory.getUOW(uow =>
+                            {
+                                int ciutatId = uow.DAOCiutat.getCiutat("-1", origen[0]).Id;
+
+
+                                est = uow.DAOEstacio.getEstacio("-1",
+                                    ciutatId + "",
+                                    origen[1]
+                                    );
+
+                            });
+
+                        }
+                        catch (Exception ex)
+                        {
+                            txtEstacio.BorderBrush = Brushes.IndianRed;
+                            valid = false;
+                        }
+                    }
+
+
+                });
+
+                Parada pd = new Parada(paradaOc.Count, 1, est, tj);
+
+                pd.HoraPasFormat = txtHora.Text;
+                if (pd.HoraPas < 0 || pd.HoraPas > 1439)
+                {
+                    txtHora.BorderBrush = Brushes.IndianRed;
+                    valid = false;
+                }
+                
+
+                if (valid)
+                {
+                    paradaOc.Add(pd);
+                    dtgParades.Items.Refresh();
+
+                    estatParada = Estat.IDLE;
+                    estatParadaUpdate();
+                }
+
+
+                
+
+            }
+            else
+            {
+                Parada pd = dtgParades.SelectedItem as Parada;
+                Parada pd_aux = pd;
+                bool valid = true;
+
+                MySQLFactory.getUOW(uow =>
+                {
+                    String[] origen = txtEstacio.Text.Split(',');
+
+
+                    if (origen.Length != 2)
+                    {
+                        txtEstacio.BorderBrush = Brushes.IndianRed;
+                        valid = false;
+                    }
+                    else {
+
+                        origen[0] = origen[0].Trim();
+                        origen[1] = origen[1].Trim();
+
+                        try
+                        {
+                            MySQLFactory.getUOW(uow =>
+                            {
+                                int ciutatId = uow.DAOCiutat.getCiutat("-1", origen[0]).Id;
+
+
+                                pd_aux.Estacio = uow.DAOEstacio.getEstacio("-1",
+                                    ciutatId+"",
+                                    origen[1]
+                                    );
+
+                                if(pd_aux.Estacio == null)
+                                {
+                                    txtEstacio.BorderBrush = Brushes.IndianRed;
+                                    valid = false;
+                                }
+
+
+                            });
+
+                        }
+                        catch (Exception ex)
+                        {
+                            txtEstacio.BorderBrush = Brushes.IndianRed;
+                            valid = false;
+                        }
+                    }
+
+
+                });
+
+                pd_aux.HoraPasFormat = txtHora.Text;
+                if(pd_aux.HoraPas < 0 || pd_aux.HoraPas > 1439)
+                {
+                    txtHora.BorderBrush = Brushes.IndianRed;
+                    valid = false;
+                }
+
+
+                if (valid)
+                {
+                    pd = pd_aux;
+                    txtEstacio.Text = "";
+                    txtHora.Text = "";
+                    dtgParades.SelectedItem = null;
+                    estatParada = Estat.IDLE;
+                    estatParadaUpdate();
+                    dtgParades.Items.Refresh();
+                }
+                
             }
         }
         
@@ -302,8 +460,18 @@ namespace AppProj
         private void btEliminarParada_Click(object sender, RoutedEventArgs e)
         {
 
-            Parada pd = dtgTrajectes.SelectedItem as Parada;
+            Parada pd = dtgParades.SelectedItem as Parada;
             paradaOc.Remove(pd);
+
+            foreach (Parada par in paradaOc)
+            {
+                if (par.Ordre > pd.Ordre)
+                {
+                    par.Ordre--;
+                }
+            }
+
+
             txtEstacio.Text = "";
             txtHora.Text = "";
             dtgParades.Items.Refresh();
@@ -313,47 +481,53 @@ namespace AppProj
 
         private void btPuja_Click(object sender, RoutedEventArgs e)
         {
-            int maxO = paradaOc.Count;
-            Parada pd = dtgTrajectes.SelectedItem as Parada;
+            
+            Parada pd = dtgParades.SelectedItem as Parada;
 
             
 
             foreach (Parada par in paradaOc) { 
-                if(par.Ordre > pd.Ordre)
+                if(par.Ordre-1 == pd.Ordre)
                 {
                     par.Ordre--;
                 }
             }
 
             pd.Ordre++;
-            if (pd.Ordre == maxO) { 
+            if (pd.Ordre == 0) { 
                 btPuja.IsEnabled = false;
             }
 
-
+            dtgParades.Items.Refresh();
 
 
         }
 
         private void btBaixa_Click(object sender, RoutedEventArgs e)
         {
-            Parada pd = dtgTrajectes.SelectedItem as Parada;
+
+            int maxO = paradaOc.Count;
+            Parada pd = dtgParades.SelectedItem as Parada;
 
 
 
             foreach (Parada par in paradaOc)
             {
-                if (par.Ordre > pd.Ordre)
+                if (par.Ordre+1 == pd.Ordre)
                 {
                     par.Ordre++;
                 }
             }
 
             pd.Ordre--;
-            if (pd.Ordre == 0)
+
+            if (pd.Ordre == maxO)
             {
                 btBaixa.IsEnabled = false;
             }
+
+            dtgParades.Items.Refresh();
+            
         }
 
         private void btNovaEstacio_Click(object sender, RoutedEventArgs e)

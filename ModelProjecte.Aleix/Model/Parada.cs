@@ -13,6 +13,7 @@ namespace Model
         int horaPas;
         Trajecte trajecte;
 
+        bool editat = false;
         public Parada(int ordre, int horaPas, Estacio estacio, Trajecte trajecte)
         {
             Ordre = ordre;
@@ -45,7 +46,6 @@ namespace Model
         }
         public Estacio Estacio { get => estacio; set => estacio = value; }
         public Trajecte Trajecte { get => trajecte; set => trajecte = value; }
-
-        
+        public bool Editat { get => editat; set => editat = value; }
     }
 }

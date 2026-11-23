@@ -42,7 +42,7 @@ namespace Dao
                 comanda.CommandText = @"
                     SELECT * FROM CIUTAT
                     WHERE (:ID_TEXT = -1 OR ID = :ID_TEXT)
-                    AND (:NOM_TEXT = '' OR UPPER(NOM) LIKE UPPER(:NOM_TEXT))";
+                    AND (:NOM_TEXT IS NULL OR UPPER(NOM) LIKE UPPER(:NOM_TEXT))";
 
                 if (comanda is Oracle.ManagedDataAccess.Client.OracleCommand oracleCommand)
                     oracleCommand.BindByName = true;
@@ -61,10 +61,9 @@ namespace Dao
                 var param2 = comanda.CreateParameter();
                 param2.ParameterName = "NOM_TEXT";
 
-                if (String.IsNullOrWhiteSpace(nom_filtre))
-                    param2.Value = "";
-                else
-                    param2.Value = "%" + nom_filtre + "%";
+                param2.Value = String.IsNullOrWhiteSpace(nom_filtre)
+                    ? DBNull.Value
+                    : "%" + nom_filtre + "%";
 
                 param2.DbType = DbType.String;
                 comanda.Parameters.Add(param2);

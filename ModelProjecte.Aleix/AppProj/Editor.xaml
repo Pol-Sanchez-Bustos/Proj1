@@ -105,7 +105,7 @@
 
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5">
                         <Button x:Name="btNovaParada" Margin="5,15,5,5" IsEnabled="False" Click="btNovaParada_Click">Nova Parada</Button>
-                        <Button x:Name="btEditarParada" Width="45" Height="45" FontSize="20" IsEnabled="False" Click="btEditarParada_Click">✎</Button>
+                        
                         <Button x:Name="btEliminarParada" Width="45" Height="45" FontSize="20" IsEnabled="False" Click="btEliminarParada_Click">♜</Button>
                     </StackPanel>
                 </Grid>
