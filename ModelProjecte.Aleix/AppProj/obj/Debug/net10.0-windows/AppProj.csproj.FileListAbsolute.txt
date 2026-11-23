@@ -153,3 +153,5 @@ C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\A
 C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\AppProj\obj\Debug\net10.0-windows\ref\AppProj.dll
 C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\AppProj\obj\Debug\net10.0-windows\Editor.g.cs
 C:\Users\aleix\Documents\Clase\Repositorios\Projecte\Proj1\ModelProjecte.Aleix\AppProj\obj\Debug\net10.0-windows\Editor.baml
+C:\Users\Aleix Masip\Documents\Repos\Proyecto\Proyecto1\ModelProjecte.Aleix\AppProj\obj\Debug\net10.0-windows\Editor.g.cs
+C:\Users\Aleix Masip\Documents\Repos\Proyecto\Proyecto1\ModelProjecte.Aleix\AppProj\obj\Debug\net10.0-windows\Editor.baml

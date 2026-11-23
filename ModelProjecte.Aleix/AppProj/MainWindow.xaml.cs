@@ -48,105 +48,117 @@ namespace AppProj
 
         private void btBuscarTrajecte_Click(object sender, RoutedEventArgs e)
         {
-
-            String[] origen = txtOrigen.Text.Split(',');
-            String[] desti = txtDesti.Text.Split(',');
-
-
-            if (origen.Length != 2 || desti.Length != 2)
+            if(txtSortida.Text == "")
             {
-                MessageBox.Show("Format incorrecte. Utilitza: Ciutat, Estació");
-                return;
+                txtSortida.Text = "0:00";
             }
 
-            origen[0] = origen[0].Trim();
-            origen[1] = origen[1].Trim();
-
-            desti[0] = desti[0].Trim();
-            desti[1] = desti[1].Trim();
-
-            int origenId = -1, destiId = -1;
-
-            try
+            if (txtSortida.Text.Count(':') == 1)
             {
-                MySQLFactory.getUOW(uow =>
+                String[] origen = txtOrigen.Text.Split(',');
+                String[] desti = txtDesti.Text.Split(',');
+
+
+                if (origen.Length != 2 || desti.Length != 2)
                 {
-                    origenId = uow.DAOEstacio.getEstacio("-1",
-                        uow.DAOCiutat.getCiutat("-1", origen[0]).Id+"",
-                        origen[1]
-                        ).Id;
+                    MessageBox.Show("Format incorrecte. Utilitza: Ciutat, Estació");
+                    return;
+                }
 
-                    destiId = uow.DAOEstacio.getEstacio("-1",
-                        uow.DAOCiutat.getCiutat("-1", desti[0]).Id + "",
-                        desti[1]
-                        ).Id;
-                });
+                origen[0] = origen[0].Trim();
+                origen[1] = origen[1].Trim();
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Dades invalides", "Error",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+                desti[0] = desti[0].Trim();
+                desti[1] = desti[1].Trim();
 
+                int origenId = -1, destiId = -1;
 
-            ObservableCollection<Parada> lisOrigen;
-            ObservableCollection<Trajecte> lisTrajecte = new ObservableCollection<Trajecte>();
-
-
-            try
-            {
-                MySQLFactory.getUOW(uow =>
+                try
                 {
-                    lisOrigen = uow.DAOParada.getParades("-1", "-1", "" +origenId);
-
-                    ObservableCollection<Trajecte> lisTrajecte = new ObservableCollection<Trajecte>();
-
-                    try
+                    MySQLFactory.getUOW(uow =>
                     {
-                        int horaSortida;
+                        origenId = uow.DAOEstacio.getEstacio("-1",
+                            uow.DAOCiutat.getCiutat("-1", origen[0]).Id+"",
+                            origen[1]
+                            ).Id;
 
-                        string[] parts = txtSortida.Text.Split(':');
+                        destiId = uow.DAOEstacio.getEstacio("-1",
+                            uow.DAOCiutat.getCiutat("-1", desti[0]).Id + "",
+                            desti[1]
+                            ).Id;
+                    });
 
-                        int hores = int.Parse(parts[0]);
-                        int minuts = int.Parse(parts[1]);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Dades invalides", "Error",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
 
-                        horaSortida = (hores * 60) + minuts;
 
-                        MySQLFactory.getUOW(uow =>
+                ObservableCollection<Parada> lisOrigen;
+                ObservableCollection<Trajecte> lisTrajecte = new ObservableCollection<Trajecte>();
+
+
+                try
+                {
+                    MySQLFactory.getUOW(uow =>
+                    {
+                        lisOrigen = uow.DAOParada.getParades("-1", "-1", "" +origenId);
+
+                        ObservableCollection<Trajecte> lisTrajecte = new ObservableCollection<Trajecte>();
+
+                        try
                         {
-                            ObservableCollection<int> ids =
-                                uow.DAOParada.getTrajectesEntreEstacions(
-                                    origenId, destiId, horaSortida);
 
-                            foreach (int id in ids)
+                            int horaSortida;
+
+                            string[] parts = txtSortida.Text.Split(':');
+
+                            int hores = int.Parse(parts[0]);
+                            int minuts = int.Parse(parts[1]);
+
+                            horaSortida = (hores * 60) + minuts;
+
+                            MySQLFactory.getUOW(uow =>
                             {
-                                Trajecte trajecte =
-                                    uow.DAOTrajecte.getTrajecte(id.ToString());
+                                ObservableCollection<int> ids =
+                                    uow.DAOParada.getTrajectesEntreEstacions(
+                                        origenId, destiId, horaSortida);
 
-                                if (trajecte != null)
-                                    lisTrajecte.Add(trajecte);
-                            }
-                        });
+                                foreach (int id in ids)
+                                {
+                                    Trajecte trajecte =
+                                        uow.DAOTrajecte.getTrajecte(id.ToString());
 
-                        dtgTrajectes.ItemsSource = lisTrajecte;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.ToString(), "Error",
-                            MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
+                                    if (trajecte != null & trajecte.Validat == 1)
+                                        lisTrajecte.Add(trajecte);
+                                }
+                            });
+
+                            dtgTrajectes.ItemsSource = lisTrajecte;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString(), "Error",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     
  
-                });
+                    });
 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Dades invalides", "Error",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Dades invalides", "Error",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+                txtSortida.BorderBrush = Brushes.IndianRed;
             }
 
             

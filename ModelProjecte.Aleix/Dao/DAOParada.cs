@@ -101,6 +101,7 @@ namespace Dao
 
                             Trajecte trajecte = uow.DAOTrajecte.getTrajecte(
                                 ""+tr);
+                            
                             oc.Add(new Parada(
                                 ord,
                                 hp,
@@ -285,7 +286,7 @@ namespace Dao
             {
                 comanda.CommandText = @"
                     DELETE FROM PARADA
-                    WHERE ORDRE = :ORDRE_TEXT
+                    WHERE ORDRE > :ORDRE_TEXT
                     AND TRAJECTE = :TRAJECTE_TEXT";
 
                 comanda.Transaction = transaction.GetDbTransaction();
@@ -323,6 +324,84 @@ namespace Dao
 
                     throw new AggregateException(
                         "Error en eliminar la parada " + ordre + ".", ex);
+                }
+            }
+        }
+
+        public void updateParada(Parada parada)
+        {
+            var conexio = _context.Database.GetDbConnection();
+
+            if (conexio.State == ConnectionState.Closed)
+                conexio.Open();
+
+            var transaction = _context.Database.CurrentTransaction;
+
+            if (transaction == null)
+                throw new InvalidOperationException("No hi ha cap transacció activa.");
+
+            using (var comanda = conexio.CreateCommand())
+            {
+                comanda.CommandText = @"
+            UPDATE PARADA
+            SET ESTACIO_ID = :ESTACIO_TEXT,
+                HORAPAS = :HORA_TEXT
+            WHERE ORDRE = :ORDRE_TEXT
+            AND TRAJECTE = :TRAJECTE_TEXT";
+
+                comanda.Transaction = transaction.GetDbTransaction();
+
+                if (comanda is Oracle.ManagedDataAccess.Client.OracleCommand oracleCommand)
+                    oracleCommand.BindByName = true;
+
+                var param = comanda.CreateParameter();
+                param.ParameterName = "ESTACIO_TEXT";
+                param.Value = parada.Estacio.Id;
+                param.DbType = DbType.Int32;
+                comanda.Parameters.Add(param);
+
+                var param2 = comanda.CreateParameter();
+                param2.ParameterName = "HORA_TEXT";
+                param2.Value = parada.HoraPas;
+                param2.DbType = DbType.Int32;
+                comanda.Parameters.Add(param2);
+
+                var param3 = comanda.CreateParameter();
+                param3.ParameterName = "ORDRE_TEXT";
+                param3.Value = parada.Ordre;
+                param3.DbType = DbType.Int32;
+                comanda.Parameters.Add(param3);
+
+                var param4 = comanda.CreateParameter();
+                param4.ParameterName = "TRAJECTE_TEXT";
+                param4.Value = parada.Trajecte.Id;
+                param4.DbType = DbType.Int32;
+                comanda.Parameters.Add(param4);
+
+                transaction.CreateSavepoint("sp1");
+
+                try
+                {
+                    int filesAfectades = comanda.ExecuteNonQuery();
+
+                    if (filesAfectades == 0)
+                        throw new InvalidOperationException("No s'ha trobat la parada a modificar.");
+                }
+                catch (Exception ex)
+                {
+                    try
+                    {
+                        transaction.RollbackToSavepoint("sp1");
+                    }
+                    catch (Exception rollbackEx)
+                    {
+                        throw new AggregateException(
+                            "Error en modificar la parada i fer rollback.",
+                            ex, rollbackEx);
+                    }
+
+                    throw new AggregateException(
+                        "Error en modificar la parada " + parada.Ordre + ".", ex);
                 }
             }
         }

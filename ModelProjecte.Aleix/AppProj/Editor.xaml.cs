@@ -214,18 +214,33 @@ namespace AppProj
 
                     uow.Commit();
 
-                    MySQLFactory.getUOW(uow =>
-                    {
-                        trajecteOc = uow.DAOTrajecte.getTrajectes("-1", "" + user.Id, "-1");
-                        dtgTrajectes.ItemsSource = trajecteOc;
-                    });
+                    trajecteOc = uow.DAOTrajecte.getTrajectes("-1", "" + user.Id, "-1");
+                    dtgTrajectes.ItemsSource = trajecteOc;
                 });
             }
         }
 
         private void dtgTrajectes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (dtgTrajectes.HasItems && dtgTrajectes.IsLoaded && dtgTrajectes.SelectedItem != null) {
+            if (dtgTrajectes.HasItems && dtgTrajectes.IsLoaded && dtgTrajectes.SelectedItem == null) {
+                txtNom.Text = "";
+                dtgTrajectes.SelectedItem = null;
+
+                estatTrajecte = Estat.IDLE; estatTrajecteUpdate();
+
+                paradaOc = new ObservableCollection<Parada>();
+
+                txtEstacio.Text = "";
+                txtHora.Text = "";
+
+                estatParada = Estat.IDLE;
+                estatParadaUpdate();
+
+                dtgParades.Items.Refresh();
+
+            } 
+           
+            else if(dtgTrajectes.HasItems && dtgTrajectes.IsLoaded && dtgTrajectes.SelectedItem != null) {
                 estatTrajecte = Estat.EDICIO;
                 estatTrajecteUpdate();
 
@@ -370,6 +385,7 @@ namespace AppProj
 
                 if (valid)
                 {
+                    pd.Editat = true;
                     paradaOc.Add(pd);
                     dtgParades.Items.Refresh();
 
@@ -434,17 +450,27 @@ namespace AppProj
 
                 });
 
-                pd_aux.HoraPasFormat = txtHora.Text;
-                if(pd_aux.HoraPas < 0 || pd_aux.HoraPas > 1439)
+                if(txtHora.Text.Split(":").Length == 2)
+                {
+                    pd_aux.HoraPasFormat = txtHora.Text;
+                    if (pd_aux.HoraPas < 0 || pd_aux.HoraPas > 1439)
+                    {
+                        txtHora.BorderBrush = Brushes.IndianRed;
+                        valid = false;
+                    }
+                }
+                else
                 {
                     txtHora.BorderBrush = Brushes.IndianRed;
                     valid = false;
                 }
+                
 
 
                 if (valid)
                 {
                     pd = pd_aux;
+                    pd.Editat = true;
                     txtEstacio.Text = "";
                     txtHora.Text = "";
                     dtgParades.SelectedItem = null;
@@ -490,10 +516,12 @@ namespace AppProj
                 if(par.Ordre-1 == pd.Ordre)
                 {
                     par.Ordre--;
+                    par.Editat = true;
                 }
             }
 
             pd.Ordre++;
+            pd.Editat = true;
             if (pd.Ordre == 0) { 
                 btPuja.IsEnabled = false;
             }
@@ -516,11 +544,12 @@ namespace AppProj
                 if (par.Ordre+1 == pd.Ordre)
                 {
                     par.Ordre++;
+                    par.Editat = true;
                 }
             }
 
             pd.Ordre--;
-
+            pd.Editat = true;
             if (pd.Ordre == maxO)
             {
                 btBaixa.IsEnabled = false;
@@ -561,7 +590,22 @@ namespace AppProj
 
         private void btGuardarCanvisPar_Click(object sender, RoutedEventArgs e)
         {
+            MySQLFactory.getUOW(uow =>
+            {
+                Trajecte tj = dtgTrajectes.SelectedItem as Trajecte;
+                uow.DAOParada.deleteParada(""+(paradaOc.Count - 1),""+ tj.Id);
 
+                foreach (Parada par in paradaOc)
+                {
+                    if (par.Editat)
+                    {
+                        uow.DAOParada.updateParada(par);
+                    }
+                }
+
+                uow.Commit();
+
+            });
         }
     }
 }

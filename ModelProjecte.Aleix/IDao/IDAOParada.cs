@@ -13,5 +13,8 @@ namespace IDao
     int origenId, int destiId, int horaSortida);
 
         void insertParada(Parada parada);
+
+
+        void updateParada(Parada parada);
     }
 }
