@@ -28,6 +28,10 @@ namespace Model
         public double Longitud { get => longitud; set => longitud = value; }
         public Ciutat Ciutat { get => ciutat; set => ciutat = value; }
 
+        public override string ToString()
+        {
+            return ciutat.Nom+","+nom;
+        }
         
 
 

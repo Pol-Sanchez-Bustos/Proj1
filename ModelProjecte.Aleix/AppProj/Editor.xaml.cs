@@ -93,7 +93,6 @@ namespace AppProj
             switch (estatParada)
             {
                 case Estat.EDICIO:
-                    btCancelaPar.IsEnabled = true;
                     btGuardarCanvisPar.IsEnabled = true;
                     btEliminarParada.IsEnabled = true;
                     txtEstacio.IsEnabled = true;
@@ -101,10 +100,10 @@ namespace AppProj
                     btPuja.IsEnabled = true;
                     btBaixa.IsEnabled = true;
                     btNovaParada.Content = "Guardar cambis parada";
+                    btCancelaPar.Content = "Para d'editar";
                     break;
 
                 case Estat.CREACIO:
-                    btCancelaPar.IsEnabled = true;
                     btGuardarCanvisPar.IsEnabled = true;
                     btEliminarParada.IsEnabled = false;
                     txtEstacio.IsEnabled = true;
@@ -112,10 +111,10 @@ namespace AppProj
                     btPuja.IsEnabled = false;
                     btBaixa.IsEnabled = false;
                     btNovaParada.Content = "Afegir al trajecte";
+                    btCancelaPar.Content = "Para d'editar";
                     break;
 
                 case Estat.IDLE:
-                    btCancelaPar.IsEnabled = false;
                     btGuardarCanvisPar.IsEnabled = false;
                     btEliminarParada.IsEnabled = false;
                     txtEstacio.IsEnabled = false;
@@ -123,6 +122,7 @@ namespace AppProj
                     btPuja.IsEnabled = false;
                     btBaixa.IsEnabled = false;
                     btNovaParada.Content = "Nova Parada";
+                    btCancelaPar.Content = "Reestableix Parades";
                     break;
             }
         }
@@ -237,6 +237,7 @@ namespace AppProj
                 estatParadaUpdate();
 
                 dtgParades.Items.Refresh();
+                btCancelaPar.IsEnabled = false;
 
             } 
            
@@ -254,6 +255,7 @@ namespace AppProj
                     paradaOc = uow.DAOParada.getParades("-1",""+tj.Id, "-1") ;
                     dtgParades.ItemsSource = paradaOc;
                 });
+                btCancelaPar.IsEnabled = true;
             }
 
         }
@@ -570,22 +572,29 @@ namespace AppProj
 
         private void btCancelaPar_Click(object sender, RoutedEventArgs e)
         {
+
             txtEstacio.Text = "";
             txtHora.Text = "";
+            
 
-
-            Trajecte tj = dtgTrajectes.SelectedItem as Trajecte;
-            MySQLFactory.getUOW(uow =>
+            if (estatParada == Estat.IDLE)
             {
-                paradaOc = uow.DAOParada.getParades("-1", "" + tj.Id, "-1");
-                dtgParades.ItemsSource = paradaOc;
-            });
+                Trajecte tj = dtgTrajectes.SelectedItem as Trajecte;
+                MySQLFactory.getUOW(uow =>
+                {
+                    paradaOc = uow.DAOParada.getParades("-1", "" + tj.Id, "-1");
+                    dtgParades.ItemsSource = paradaOc;
+                });
 
+                
+                dtgParades.Items.Refresh();
+                dtgParades.SelectedItem = null;
+            }
+
+            dtgParades.SelectedItem = null;
             estatParada = Estat.IDLE;
             estatParadaUpdate();
 
-            dtgParades.Items.Refresh();
-            dtgParades.SelectedItem = null;
         }
 
         private void btGuardarCanvisPar_Click(object sender, RoutedEventArgs e)

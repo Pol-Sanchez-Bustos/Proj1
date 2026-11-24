@@ -105,8 +105,8 @@
 
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5">
                         <Button x:Name="btNovaParada" Margin="5,15,5,5" IsEnabled="False" Click="btNovaParada_Click">Nova Parada</Button>
-                        
-                        <Button x:Name="btEliminarParada" Width="45" Height="45" FontSize="20" IsEnabled="False" Click="btEliminarParada_Click">♜</Button>
+
+                        <Button x:Name="btEliminarParada" Margin="5,15,5,5" IsEnabled="False" Click="btEliminarParada_Click">Eliminar</Button>
                     </StackPanel>
                 </Grid>
             </Grid>
@@ -140,7 +140,7 @@
                 </Border>
 
                 <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:Name="btCancelaTraj" IsEnabled="False" VerticalAlignment="Top" Click="btCancelaTraj_Click">Cancela</Button>
+                    <Button x:Name="btCancelaTraj" IsEnabled="False" VerticalAlignment="Top" Click="btCancelaTraj_Click">Cancela canvis</Button>
                     <Button x:Name="btGuardarCanvisTraj" IsEnabled="False" VerticalAlignment="Top" Click="btGuardarCanvisTraj_Click">Guardar Canvis</Button>
                 </StackPanel>
 
@@ -173,7 +173,7 @@
                 </Border>
 
                 <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:Name="btCancelaPar" IsEnabled="False" VerticalAlignment="Top" Click="btCancelaPar_Click">Cancela</Button>
+                    <Button x:Name="btCancelaPar" IsEnabled="False" VerticalAlignment="Top" Click="btCancelaPar_Click">Restableix parades</Button>
                     <Button x:Name="btGuardarCanvisPar" IsEnabled="False" VerticalAlignment="Top" Click="btGuardarCanvisPar_Click">Guardar Canvis</Button>
                 </StackPanel>
             </Grid>

@@ -43,17 +43,45 @@ namespace AppProj
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            MySQLFactory.getUOW(uow =>
+            {
+                ObservableCollection<Estacio> est = uow.DAOEstacio.getEstacions("-1", "-1", "");
+                lstSugerenciasOrigen.ItemsSource = est;
+                lstSugerenciasDesti.ItemsSource = est;
+
+            });
         }
 
         private void btBuscarTrajecte_Click(object sender, RoutedEventArgs e)
         {
+            bool sort = true, dest = true, org = true;
             if(txtSortida.Text == "")
             {
                 txtSortida.Text = "0:00";
             }
 
-            if (txtSortida.Text.Count(':') == 1)
+            if (txtSortida.Text.Count(':') != 1)
+            {
+                sort = false;
+                txtSortida.BorderBrush = Brushes.IndianRed;
+            }
+            
+            if (txtDesti.Text.Count(',') != 1)
+            {
+                dest = false;
+                txtDesti.BorderBrush = Brushes.IndianRed;
+            }
+
+            if (txtOrigen.Text.Count(',') != 1)
+            {
+                dest = false;
+                txtOrigen.BorderBrush = Brushes.IndianRed;
+            }
+
+
+            int origenId = -1, destiId = -1;
+
+            if (sort && dest && org)
             {
                 String[] origen = txtOrigen.Text.Split(',');
                 String[] desti = txtDesti.Text.Split(',');
@@ -71,38 +99,81 @@ namespace AppProj
                 desti[0] = desti[0].Trim();
                 desti[1] = desti[1].Trim();
 
-                int origenId = -1, destiId = -1;
+                
 
                 try
                 {
                     MySQLFactory.getUOW(uow =>
                     {
-                        origenId = uow.DAOEstacio.getEstacio("-1",
-                            uow.DAOCiutat.getCiutat("-1", origen[0]).Id+"",
+                        Estacio est = uow.DAOEstacio.getEstacio("-1",
+                            uow.DAOCiutat.getCiutat("-1", origen[0]).Id + "",
                             origen[1]
-                            ).Id;
+                            );
 
-                        destiId = uow.DAOEstacio.getEstacio("-1",
-                            uow.DAOCiutat.getCiutat("-1", desti[0]).Id + "",
-                            desti[1]
-                            ).Id;
+                        if(est == null)
+                        {
+                            txtOrigen.BorderBrush = Brushes.IndianRed;
+                            org = false;
+                        }
+                        else
+                        {
+                            origenId = est.Id;
+                        }
+
                     });
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Dades invalides", "Error",
+                    txtOrigen.BorderBrush = Brushes.IndianRed;
+                    org = false;
+                    MessageBox.Show("Origen invalid", "Error",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                try
+                {
+                    MySQLFactory.getUOW(uow =>
+                    {
+                        Estacio est = uow.DAOEstacio.getEstacio("-1",
+                            uow.DAOCiutat.getCiutat("-1", desti[0]).Id + "",
+                            desti[1]
+                            );
+
+                        if (est == null)
+                        {
+                            txtDesti.BorderBrush = Brushes.IndianRed;
+                            dest = false;
+                        }
+                        else
+                        {
+                            destiId = est.Id;
+                        }
+
+                        
+                    });
+
+                }
+                catch (Exception ex)
+                {
+                    txtDesti.BorderBrush = Brushes.IndianRed;
+                    dest = false;
+                    MessageBox.Show("Desti invalid", "Error",
                         MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
 
-                ObservableCollection<Parada> lisOrigen;
-                ObservableCollection<Trajecte> lisTrajecte = new ObservableCollection<Trajecte>();
 
-
+            }
+            if (sort && dest && org)
+            {
                 try
                 {
+                    ObservableCollection<Parada> lisOrigen;
+                    ObservableCollection<Trajecte> lisTrajecte = new ObservableCollection<Trajecte>();
+
                     MySQLFactory.getUOW(uow =>
                     {
                         lisOrigen = uow.DAOParada.getParades("-1", "-1", "" +origenId);
@@ -132,7 +203,7 @@ namespace AppProj
                                     Trajecte trajecte =
                                         uow.DAOTrajecte.getTrajecte(id.ToString());
 
-                                    if (trajecte != null & trajecte.Validat == 1)
+                                    if (trajecte != null && trajecte.Validat == 1)
                                         lisTrajecte.Add(trajecte);
                                 }
                             });
@@ -156,11 +227,7 @@ namespace AppProj
                     return;
                 }
             }
-            else
-            {
-                txtSortida.BorderBrush = Brushes.IndianRed;
-            }
-
+            
             
 
         }
@@ -230,6 +297,123 @@ namespace AppProj
             updateMenus();
         }
 
-        
+        private void txtSortida_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(txtSortida.BorderBrush == Brushes.IndianRed)
+            {
+                txtSortida.BorderBrush = Brushes.Black;
+            }
+
+        }
+
+        private void txtDesti_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtDesti.BorderBrush == Brushes.IndianRed)
+            {
+                txtDesti.BorderBrush = Brushes.Black;
+            }
+        }
+
+        private void txtOrigen_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtOrigen.BorderBrush == Brushes.IndianRed)
+            {
+                txtOrigen.BorderBrush = Brushes.Black;
+            }
+        }
+
+        private void lstSugerenciasOrigen_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (lstSugerenciasOrigen.SelectedItem is Estacio estacionSeleccionada)
+            {
+
+
+                txtOrigen.Text = ""+estacionSeleccionada.ToString();
+
+
+
+                popupSugerenciasOrigen.IsOpen = false;
+
+            }
+        }
+
+        private void lstSugerenciasDesti_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lstSugerenciasDesti.SelectedItem is Estacio estacionSeleccionada)
+            {
+
+
+                txtDesti.Text = ""+estacionSeleccionada.ToString();
+
+
+
+                popupSugerenciasDesti.IsOpen = false;
+
+            }
+
+        }
+
+        private void txtOrigen_GotFocus(object sender, RoutedEventArgs e)
+        {
+            popupSugerenciasOrigen.IsOpen = true;
+        }
+
+        private void txtDesti_GotFocus(object sender, RoutedEventArgs e)
+        {
+            popupSugerenciasDesti.IsOpen = true;
+        }
+
+        private void txtOrigen_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            popupSugerenciasOrigen.IsOpen = txtOrigen.IsFocused;
+        }
+
+        private void txtDesti_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            popupSugerenciasDesti.IsOpen = txtDesti.IsFocused;
+        }
+
+        private void dtgTrajectes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(dtgTrajectes.HasItems && dtgTrajectes.IsLoaded && dtgTrajectes.SelectedItem != null)
+            {
+                Trajecte traj = dtgTrajectes.SelectedItem as Trajecte;
+                List<Parada> pars = new List<Parada>();
+
+                MySQLFactory.getUOW(uow =>
+                {
+                    pars = uow.DAOParada.getParades("-1", "" + traj.Id, "-1").ToList<Parada>();
+
+
+
+
+                });
+
+
+                String str = "Dades de trajecte seleccionat\n" 
+                    + "\n\n";
+
+                foreach (Parada par in pars)
+                {
+
+                    if (par.Ordre == 0)
+                    {
+                        str += "Origen: ";
+                    }
+                    else
+                    {
+                        str += "-> ";
+                    }
+
+                    str += par.Estacio.Nom + " - " + par.HoraPasFormat + "\n";
+                }
+
+                str += "\nConsulta:\n" + traj.Nom;
+
+                txtTrajecte.Text = str;
+            }
+            
+        }
     }
 }
