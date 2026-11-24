@@ -12,6 +12,9 @@ namespace IDao
         ObservableCollection<int> getTrajectesEntreEstacions(
     int origenId, int destiId, int horaSortida);
 
+        ObservableCollection<ResultatTrajecte> buscarTransbordos(
+    int origenId, int destiId);
+
         void insertParada(Parada parada);
 
 

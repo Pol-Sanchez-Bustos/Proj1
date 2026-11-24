@@ -171,64 +171,69 @@ namespace AppProj
             {
                 try
                 {
-                    ObservableCollection<Parada> lisOrigen;
-                    ObservableCollection<Trajecte> lisTrajecte = new ObservableCollection<Trajecte>();
+                    int horaSortida;
+
+                    string[] parts = txtSortida.Text.Split(':');
+
+                    int hores = int.Parse(parts[0]);
+                    int minuts = int.Parse(parts[1]);
+
+                    if (hores < 0 || hores > 23 || minuts < 0 || minuts > 59)
+                    {
+                        txtSortida.BorderBrush = Brushes.IndianRed;
+                        return;
+                    }
+
+                    horaSortida = (hores * 60) + minuts;
+
+                    ObservableCollection<ResultatTrajecte> lisTrajecte =
+                        new ObservableCollection<ResultatTrajecte>();
+
+                    ObservableCollection<ResultatTrajecte> lisTransbords =
+                        new ObservableCollection<ResultatTrajecte>();
 
                     MySQLFactory.getUOW(uow =>
                     {
-                        lisOrigen = uow.DAOParada.getParades("-1", "-1", "" +origenId);
+                        ObservableCollection<int> ids =
+                            uow.DAOParada.getTrajectesEntreEstacions(
+                                origenId, destiId, horaSortida);
 
-                        ObservableCollection<Trajecte> lisTrajecte = new ObservableCollection<Trajecte>();
-
-                        try
+                        foreach (int id in ids)
                         {
+                            ResultatTrajecte trajecte =
+                                uow.DAOTrajecte.getResultatTrajecte(""+id,origenId,destiId);
 
-                            int horaSortida;
-
-                            string[] parts = txtSortida.Text.Split(':');
-
-                            int hores = int.Parse(parts[0]);
-                            int minuts = int.Parse(parts[1]);
-
-                            horaSortida = (hores * 60) + minuts;
-
-                            MySQLFactory.getUOW(uow =>
+                            if (trajecte != null && trajecte.Trajecte1.Validat == 1)
                             {
-                                ObservableCollection<int> ids =
-                                    uow.DAOParada.getTrajectesEntreEstacions(
-                                        origenId, destiId, horaSortida);
-
-                                foreach (int id in ids)
-                                {
-                                    Trajecte trajecte =
-                                        uow.DAOTrajecte.getTrajecte(id.ToString());
-
-                                    if (trajecte != null && trajecte.Validat == 1)
-                                        lisTrajecte.Add(trajecte);
-                                }
-                            });
-
-                            dtgTrajectes.ItemsSource = lisTrajecte;
+                                lisTrajecte.Add(trajecte);
+                            }
                         }
-                        catch (Exception ex)
+
+                        ObservableCollection<ResultatTrajecte> transbords =
+                            uow.DAOParada.buscarTransbordos(origenId, destiId);
+
+                        foreach (ResultatTrajecte resultat in transbords)
                         {
-                            MessageBox.Show(ex.ToString(), "Error",
-                                MessageBoxButton.OK, MessageBoxImage.Error);
+                            if (resultat.HoraSortida >= horaSortida)
+                            {
+                                lisTransbords.Add(resultat);
+                            }
                         }
-                    
- 
                     });
 
+                    dtgTrajectes.ItemsSource = lisTrajecte;
+                    dtgTransbords.ItemsSource = lisTransbords;
+
+                    txtTrajecte.Text = "";
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Dades invalides", "Error",
+                    MessageBox.Show(ex.ToString(), "Error",
                         MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
                 }
             }
-            
-            
+
+
 
         }
 
@@ -374,46 +379,112 @@ namespace AppProj
             popupSugerenciasDesti.IsOpen = txtDesti.IsFocused;
         }
 
+
         private void dtgTrajectes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(dtgTrajectes.HasItems && dtgTrajectes.IsLoaded && dtgTrajectes.SelectedItem != null)
+            if (dtgTrajectes.HasItems && dtgTrajectes.IsLoaded && dtgTrajectes.SelectedItem != null)
             {
-                Trajecte traj = dtgTrajectes.SelectedItem as Trajecte;
-                List<Parada> pars = new List<Parada>();
+                ResultatTrajecte resultat = dtgTrajectes.SelectedItem as ResultatTrajecte;
 
-                MySQLFactory.getUOW(uow =>
+                if (resultat == null)
+                    return;
+
+                String[] origen = txtOrigen.Text.Split(',');
+                String[] desti = txtDesti.Text.Split(',');
+
+                string nomOrigen = origen[1].Trim();
+                string nomDesti = desti[1].Trim();
+
+                string str = "";
+
+                str += "Dades del trajecte seleccionat\n\n";
+                str += "TRAJECTE: " + resultat.Trajecte1.Nom + "\n\n";
+
+                bool iniciat = false;
+
+                foreach (Parada par in resultat.ParadesTrajecte1)
                 {
-                    pars = uow.DAOParada.getParades("-1", "" + traj.Id, "-1").ToList<Parada>();
+                    if (par.Estacio.Nom.CompareTo(nomOrigen) == 0)
+                        iniciat = true;
 
+                    if (iniciat)
+                        str += par.Estacio.Nom + " - " + par.HoraPasFormat + "\n";
 
-
-
-                });
-
-
-                String str = "Dades de trajecte seleccionat\n" 
-                    + "\n\n";
-
-                foreach (Parada par in pars)
-                {
-
-                    if (par.Ordre == 0)
-                    {
-                        str += "Origen: ";
-                    }
-                    else
-                    {
-                        str += "-> ";
-                    }
-
-                    str += par.Estacio.Nom + " - " + par.HoraPasFormat + "\n";
+                    if (par.Estacio.Nom.CompareTo(nomDesti) == 0 && iniciat)
+                        break;
                 }
 
-                str += "\nConsulta:\n" + traj.Nom;
+                str += "\n";
+                str += "Sortida: " + resultat.HoraSortidaFormat + "\n";
+                str += "Arribada: " + resultat.HoraArribadaFormat + "\n";
 
                 txtTrajecte.Text = str;
+                txtTrajecte.Visibility = Visibility.Visible;
             }
-            
+        }
+
+
+        private void dtgTransbords_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dtgTransbords.HasItems && dtgTransbords.IsLoaded &&
+                dtgTransbords.SelectedItem != null)
+            {
+                ResultatTrajecte resultat =
+                    dtgTransbords.SelectedItem as ResultatTrajecte;
+
+                if (resultat == null)
+                    return;
+
+                string str = "";
+
+                str += "Dades del trajecte seleccionat\n\n";
+
+                str += "PRIMER TRAJECTE: " + resultat.Trajecte1.Nom + "\n\n";
+
+                String[] origen = txtOrigen.Text.Split(',');
+                String[] desti = txtDesti.Text.Split(',');
+
+                string nomOrigen = origen[1].Trim();
+                string nomDesti = desti[1].Trim();
+
+                bool iniciat = false;
+
+                foreach (Parada par in resultat.ParadesTrajecte1)
+                {
+                    if (par.Estacio.Nom.CompareTo(nomOrigen) == 0)
+                        iniciat = true;
+
+                    if (iniciat)
+                        str += par.Estacio.Nom + " - " + par.HoraPasFormat + "\n";
+
+                    if (par.Estacio.Id == resultat.EstacioTransbordo.Id && iniciat)
+                        break;
+                }
+
+                str += "\n";
+                str += "SEGON TRAJECTE: " + resultat.Trajecte2.Nom + "\n\n";
+
+                iniciat = false;
+
+                foreach (Parada par in resultat.ParadesTrajecte2)
+                {
+                    if (par.Estacio.Id == resultat.EstacioTransbordo.Id)
+                        iniciat = true;
+
+                    if (iniciat)
+                        str += par.Estacio.Nom + " - " + par.HoraPasFormat + "\n";
+
+                    if (par.Estacio.Nom.CompareTo(nomDesti) == 0 && iniciat)
+                        break;
+                }
+
+                str += "\n";
+                str += "Sortida: " + resultat.HoraSortidaFormat + "\n";
+                str += "Arribada: " + resultat.HoraArribadaFormat + "\n";
+
+                txtTrajecte.Text = str;
+                txtTrajecte.Visibility = Visibility.Visible;
+            }
         }
     }
 }

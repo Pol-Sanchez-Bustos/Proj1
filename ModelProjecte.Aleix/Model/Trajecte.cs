@@ -16,6 +16,8 @@ namespace Model
         MitjaTrans mitja;
         Usuari usuari;
 
+        String horaSortida, horaArribada;
+
         public Trajecte(int id, string nom, DateTime dataCreacio, int validat, MitjaTrans mitja, Usuari usuari)
         {
             Id = id;
@@ -32,5 +34,7 @@ namespace Model
         public int Validat { get => validat; set => validat = value; }
         public MitjaTrans Mitja { get => mitja; set => mitja = value; }
         public Usuari Usuari { get => usuari; set => usuari = value; }
+        public string HoraSortida { get => horaSortida; set => horaSortida = value; }
+        public string HoraArribada { get => horaArribada; set => horaArribada = value; }
     }
 }

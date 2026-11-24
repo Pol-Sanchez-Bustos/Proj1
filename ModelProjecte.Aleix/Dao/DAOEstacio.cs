@@ -130,21 +130,14 @@ namespace Dao
             using (var comanda = conexio.CreateCommand())
             {
                 comanda.CommandText = @"
-                    INSERT INTO ESTACIO
-                    (ID, ID_CIUTAT, NOM, LATITUD, LONGITUD)
-                    VALUES (:ID_TEXT, :ID_CIUTAT_TEXT, :NOM_TEXT,
-                            :LAT_TEXT, :LON_TEXT)";
+            INSERT INTO ESTACIO
+            (ID_CIUTAT, NOM, LATITUD, LONGITUD)
+            VALUES (:ID_CIUTAT_TEXT, :NOM_TEXT, :LAT_TEXT, :LON_TEXT)";
 
                 comanda.Transaction = transaction.GetDbTransaction();
 
                 if (comanda is Oracle.ManagedDataAccess.Client.OracleCommand oracleCommand)
                     oracleCommand.BindByName = true;
-
-                var param = comanda.CreateParameter();
-                param.ParameterName = "ID_TEXT";
-                param.Value = est.Id;
-                param.DbType = System.Data.DbType.Int32;
-                comanda.Parameters.Add(param);
 
                 var param2 = comanda.CreateParameter();
                 param2.ParameterName = "ID_CIUTAT_TEXT";
@@ -190,7 +183,7 @@ namespace Dao
                     }
 
                     throw new AggregateException(
-                        "Error en inserir l'estacio " + est.Id + ".", ex);
+                        "Error en inserir l'estacio.", ex);
                 }
             }
         }

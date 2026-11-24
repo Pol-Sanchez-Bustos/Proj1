@@ -11,6 +11,9 @@
     <Compile Update="LogIn.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="NovaEstacio.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="SignIn.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

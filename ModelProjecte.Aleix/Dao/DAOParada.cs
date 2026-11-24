@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Linq;
 
 namespace Dao
 {
@@ -15,6 +16,7 @@ namespace Dao
     {
         private readonly MyDBContext _context;
 
+        List<Parada> prds = new List<Parada>();
         public DAOParada(MyDBContext c)
         {
             _context = c;
@@ -179,13 +181,137 @@ namespace Dao
             return resultats;
         }
 
-        private class ParadaDades
+
+
+        public ObservableCollection<ResultatTrajecte> buscarTransbordos(
+            int origenId, int destiId)
         {
-            public int Ordre;
-            public int HoraPas;
-            public int EstacioId;
-            public int TrajecteId;
+            ObservableCollection<ResultatTrajecte> resultados =
+                new ObservableCollection<ResultatTrajecte>();
+
+            Dictionary<int, ObservableCollection<Parada>> cacheParades =
+                new Dictionary<int, ObservableCollection<Parada>>();
+
+            ObservableCollection<Parada> paradesOrigen =
+                getParades("-1", "-1", origenId.ToString());
+
+            foreach (Parada paradaOrigen in paradesOrigen)
+            {
+                Trajecte primerTrajecte = paradaOrigen.Trajecte;
+
+                if (primerTrajecte == null || primerTrajecte.Validat != 1)
+                    continue;
+
+                if (!cacheParades.ContainsKey(primerTrajecte.Id))
+                {
+                    cacheParades[primerTrajecte.Id] =
+                        getParades("-1", primerTrajecte.Id.ToString());
+                }
+
+                ObservableCollection<Parada> paradesPrimer =
+                    cacheParades[primerTrajecte.Id];
+
+                int posOrigen = -1;
+
+                for (int i = 0; i < paradesPrimer.Count; i++)
+                {
+                    if (paradesPrimer[i].Estacio.Id == origenId)
+                    {
+                        posOrigen = i;
+                        break;
+                    }
+                }
+
+                if (posOrigen == -1)
+                    continue;
+
+                for (int i = posOrigen + 1; i < paradesPrimer.Count; i++)
+                {
+                    Parada paradaTransbordo = paradesPrimer[i];
+
+                    int estacioTransbordo = paradaTransbordo.Estacio.Id;
+
+                    if (estacioTransbordo == destiId)
+                        continue;
+
+                    ObservableCollection<int> segonsTrajectes =
+                        getTrajectesEntreEstacions(
+                            estacioTransbordo,
+                            destiId,
+                            paradaTransbordo.HoraPas
+                        );
+
+                    foreach (int segonId in segonsTrajectes)
+                    {
+                        if (segonId == primerTrajecte.Id)
+                            continue;
+
+                        bool repetido = false;
+
+                        foreach (ResultatTrajecte r in resultados)
+                        {
+                            if (r.Trajecte1.Id == primerTrajecte.Id &&
+                                r.Trajecte2.Id == segonId &&
+                                r.EstacioTransbordo.Id == estacioTransbordo)
+                            {
+                                repetido = true;
+                                break;
+                            }
+                        }
+
+                        if (repetido)
+                            continue;
+
+                        if (!cacheParades.ContainsKey(segonId))
+                        {
+                            cacheParades[segonId] =
+                                getParades("-1", segonId.ToString());
+                        }
+
+                        ObservableCollection<Parada> paradesSegon =
+                            cacheParades[segonId];
+
+                        int horaArribada = -1;
+                        Trajecte segonTrajecte = null;
+
+                        foreach (Parada p in paradesSegon)
+                        {
+                            if (p.Trajecte != null)
+                                segonTrajecte = p.Trajecte;
+
+                            if (p.Estacio.Id == destiId)
+                            {
+                                horaArribada = p.HoraPas;
+                                break;
+                            }
+                        }
+
+                        if (horaArribada != -1 && segonTrajecte != null)
+                        {
+                            ResultatTrajecte resultat = new ResultatTrajecte();
+
+                            resultat.Trajecte1 = primerTrajecte;
+                            resultat.Trajecte2 = segonTrajecte;
+                            resultat.EstacioTransbordo = paradaTransbordo.Estacio;
+
+
+                            resultat.HoraSortida = paradaOrigen.HoraPas;
+                            resultat.HoraTransbordo = paradaTransbordo.HoraPas;
+                            resultat.HoraArribada = horaArribada;
+
+                            resultat.ParadesTrajecte1 = paradesPrimer;
+                            resultat.ParadesTrajecte2 = paradesSegon;
+
+                            resultados.Add(resultat);
+                        }
+                    }
+                }
+            }
+
+            return resultados;
         }
+
+
 
         public void insertParada(Parada parada)
         {

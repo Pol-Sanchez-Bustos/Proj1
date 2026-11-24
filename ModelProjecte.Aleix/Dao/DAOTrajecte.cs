@@ -120,9 +120,47 @@ namespace Dao
                     mitja,
                     usuari
                 ));
+
+
             }
 
             return oc;
+        }
+
+        public ResultatTrajecte getResultatTrajecte(string idTrajecte, int origenId, int destiId)
+        {
+            Trajecte trajecte = getTrajecte(idTrajecte);
+
+            if (trajecte == null)
+                return null;
+
+            ObservableCollection<Parada> parades = null;
+
+            MySQLFactory.getUOW(uow =>
+                    parades = uow.DAOParada.getParades("-1", idTrajecte));
+
+            Parada origen = null;
+            Parada desti = null;
+
+            foreach (Parada parada in parades)
+            {
+                if (parada.Estacio.Id == origenId)
+                    origen = parada;
+
+                if (parada.Estacio.Id == destiId)
+                    desti = parada;
+            }
+
+            if (origen == null || desti == null)
+                return null;
+
+            return new ResultatTrajecte
+            {
+                Trajecte1 = trajecte,
+                HoraSortida = origen.HoraPas,
+                HoraArribada = desti.HoraPas,
+                ParadesTrajecte1 = parades
+            };
         }
 
         private class TrajecteDades

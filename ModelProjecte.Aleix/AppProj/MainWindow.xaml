@@ -15,49 +15,44 @@
         <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
             <Setter Property="Margin" Value="0,0,20,0"></Setter>
             <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
-
         </Style>
     </Window.Resources>
 
-
-
-
     <Grid Margin="20">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10*"></ColumnDefinition>
-            <ColumnDefinition Width="10*"></ColumnDefinition>
-            <ColumnDefinition Width="15*"></ColumnDefinition>
-            <ColumnDefinition Width="10*"></ColumnDefinition>
-            <ColumnDefinition Width="12*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+            <ColumnDefinition Width="1.5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="44*"></RowDefinition>
-            <RowDefinition Height="44*"></RowDefinition>
-            <RowDefinition Height="31*"></RowDefinition>
-            <RowDefinition Height="13*"/>
-            <RowDefinition Height="44*"></RowDefinition>
-            <RowDefinition Height="219*"></RowDefinition>
-
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto" MinHeight="200"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Menu Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.ColumnSpan="5">
-            <MenuItem Header="Sign in" x:Name="mnSignIn" Click="mnSignIn_Click" ></MenuItem>
+            <MenuItem Header="Sign in" x:Name="mnSignIn" Click="mnSignIn_Click"></MenuItem>
             <MenuItem Header="Log in" x:Name="mnLogIn" Click="mnLogIn_Click"></MenuItem>
             <MenuItem Header="Editar" x:Name="mnEdit" Click="mnEdit_Click" Visibility="Collapsed"></MenuItem>
             <MenuItem Header="Administrar" x:Name="mnAdmin" Click="mnAdmin_Click" Visibility="Collapsed"></MenuItem>
             <MenuItem Header="Log out" x:Name="mnLogOut" Click="mnLogOut_Click" Visibility="Collapsed"></MenuItem>
         </Menu>
 
-        <Label Grid.Column="0" Grid.Row="1" Margin="0,0,0,30" Grid.RowSpan="2">Origen:</Label>
-        <Label Grid.Row="1" Grid.ColumnSpan="3" Margin="133,0,200,30" Grid.RowSpan="2">Desti:</Label>
-        <Label Grid.Column="3" Grid.Row="1" Margin="0,0,0,30" Grid.RowSpan="2">Hora de sortida:</Label>
+        <Label Grid.Column="0" Grid.Row="1" Margin="0,0,0,10">Origen:</Label>
+        <Label Grid.Row="1" Grid.Column="1" Margin="0,0,0,10">Desti:</Label>
+        <Label Grid.Column="3" Grid.Row="1" Margin="0,0,0,10">Hora de sortida:</Label>
 
-        <TextBox Grid.Column="0" Grid.Row="2" Margin="0,0,20,0" Grid.RowSpan="2" x:Name="txtOrigen" KeyDown="txtOrigen_KeyDown" TextChanged="txtOrigen_TextChanged" GotFocus="txtOrigen_GotFocus"></TextBox>
+        <TextBox Grid.Column="0" Grid.Row="2" x:Name="txtOrigen" KeyDown="txtOrigen_KeyDown" TextChanged="txtOrigen_TextChanged" GotFocus="txtOrigen_GotFocus"></TextBox>
         <Popup x:Name="popupSugerenciasOrigen" 
            PlacementTarget="{Binding ElementName=txtOrigen}" 
            Placement="Bottom" 
            StaysOpen="False">
-                <ListBox x:Name="lstSugerenciasOrigen"
+            <ListBox x:Name="lstSugerenciasOrigen"
              MaxHeight="150"
              Width="{Binding ActualWidth, ElementName=txtOrigen}"
              SelectionChanged="lstSugerenciasOrigen_SelectionChanged">
@@ -72,7 +67,7 @@
 
             </ListBox>
         </Popup>
-        <TextBox Grid.Row="2" Grid.ColumnSpan="2" Margin="133,0,20,0" Grid.RowSpan="2" x:Name="txtDesti" KeyDown="txtDesti_KeyDown" TextChanged="txtDesti_TextChanged" GotFocus="txtDesti_GotFocus"/>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtDesti" KeyDown="txtDesti_KeyDown" TextChanged="txtDesti_TextChanged" GotFocus="txtDesti_GotFocus"/>
         <Popup x:Name="popupSugerenciasDesti" 
            PlacementTarget="{Binding ElementName=txtDesti}" 
            Placement="Bottom" 
@@ -92,18 +87,28 @@
 
             </ListBox>
         </Popup>
-        <Button Grid.Column="2" Grid.Row="2" Margin="10,0,10,0" Grid.RowSpan="2" x:Name="btBuscarTrajecte" Click="btBuscarTrajecte_Click">Buscar Trajecte</Button>
-        <TextBox Grid.Column="3" Grid.Row="2" Margin="0,0,20,0" Grid.RowSpan="2" x:Name="txtSortida" KeyDown="txtSortida_KeyDown"></TextBox>
+        <Button Grid.Column="2" Grid.Row="2" Margin="10,0,10,0" x:Name="btBuscarTrajecte" Click="btBuscarTrajecte_Click">Buscar Trajecte</Button>
+        <TextBox Grid.Column="3" Grid.Row="2" x:Name="txtSortida" KeyDown="txtSortida_KeyDown"></TextBox>
 
-        <Label Grid.Column="0" Grid.Row="3" Margin="0,13,0,0" Grid.RowSpan="2">Trajectes:</Label>
-        <DataGrid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" VerticalScrollBarVisibility="Visible" Margin="0,44,0,0" Grid.RowSpan="2" SelectionMode="Single" x:Name="dtgTrajectes" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="dtgTrajectes_SelectionChanged">
+        <Label Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,10,0,5">Trajectes:</Label>
+        <Label Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="3" Margin="10,10,0,5">Trajectes amb transbords:</Label>
+        <DataGrid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Visible" Margin="0,0,5,0" SelectionMode="Single" x:Name="dtgTrajectes" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="dtgTrajectes_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Trajecte" Binding="{Binding Nom}" Width="3*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Mitja" Binding="{Binding Mitja.Nom}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Creador" Binding="{Binding Usuari.Nom}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Trajecte" Binding="{Binding Trajecte1.Nom}" Width="2*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Mitja" Binding="{Binding Trajecte1.Mitja.Nom}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Mitja" Binding="{Binding HoraSortidaFormat}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Mitja" Binding="{Binding HoraArribadaFormat}" Width="*"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox Grid.Column="3" Grid.Row="5" Margin="10,0,0,0" Grid.ColumnSpan="2" IsReadOnly="True" Name="txtTrajecte"></TextBox>
+        <DataGrid Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="3" VerticalScrollBarVisibility="Visible" Margin="5,0,0,0" SelectionMode="Single" x:Name="dtgTransbords" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="dtgTransbords_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Trajecte 1" Binding="{Binding Trajecte1.Nom}" Width="2*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Trajecte 2" Binding="{Binding Trajecte2.Nom}" Width="2*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Sortida" Binding="{Binding HoraSortidaFormat}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Arribada" Binding="{Binding HoraArribadaFormat}" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox Grid.Column="0" Grid.Row="5" Margin="10" Grid.ColumnSpan="3" IsReadOnly="True" Name="txtTrajecte" Visibility="Collapsed"></TextBox>
     </Grid>
 
 </Window>

@@ -45,12 +45,15 @@ namespace AppProj
         {
             MySQLFactory.getUOW(uow =>
             {
-                trajecteOc = uow.DAOTrajecte.getTrajectes("-1", ""+user.Id, "-1");
+                trajecteOc = uow.DAOTrajecte.getTrajectes("-1", "" + user.Id, "-1");
                 dtgTrajectes.ItemsSource = trajecteOc;
 
                 cbMitjaTransport.ItemsSource = uow.DAOMitjaTrans.getMitjasTrans("-1");
                 cbMitjaTransport.SelectedIndex = 0;
 
+                ObservableCollection<Estacio> estacions = uow.DAOEstacio.getEstacions("-1", "-1", "");
+
+                lstSugerenciasEstacio.ItemsSource = estacions;
             });
         }
 
@@ -561,14 +564,32 @@ namespace AppProj
             
         }
 
+
         private void btNovaEstacio_Click(object sender, RoutedEventArgs e)
         {
+            btNovaEstacio.IsEnabled = false;
 
+            try
+            {
+                NovaEstacio ventana = new NovaEstacio();
 
-          
+                if (ventana.ShowDialog() == true)
+                {
+                    Estacio est = ventana.EstacioCreada;
+
+                    lstSugerenciasEstacio.Items.Add(est);
+                    txtEstacio.Text = est.Ciutat.Nom + "," + est.Nom;
+                    txtEstacio.BorderBrush = Brushes.Black;
+                }
+            }
+            finally
+            {
+                btNovaEstacio.IsEnabled = true;
+            }
         }
 
-        
+
+
 
         private void btCancelaPar_Click(object sender, RoutedEventArgs e)
         {
@@ -615,6 +636,30 @@ namespace AppProj
                 uow.Commit();
 
             });
+        }
+
+        private void lstSugerenciasEstacio_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lstSugerenciasEstacio.SelectedItem is Estacio estacionSeleccionada)
+            {
+                txtEstacio.Text = estacionSeleccionada.ToString();
+                popupSugerenciasEstacio.IsOpen = false;
+            }
+        }
+
+        private void txtEstacio_GotFocus(object sender, RoutedEventArgs e)
+        {
+            popupSugerenciasEstacio.IsOpen = true;
+        }
+
+        private void txtEstacio_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            popupSugerenciasEstacio.IsOpen = txtEstacio.IsFocused;
+        }
+
+        private void txtEstacio_LostFocus(object sender, RoutedEventArgs e)
+        {
+            popupSugerenciasEstacio.IsOpen = false;
         }
     }
 }
